@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Lucky{% endblock %}
+
+{% block body %}
+    <h1 class="lucky">Lucky Numbers</h1>
+    <div class="content">
+        <div class="lucky-number" style="color: {{ color }}">
+            <span>{{ number }}</span>
+        </div>
+        <img class="image lucky-image" src="{{ asset('img/casino.jpg') }}" alt="Picture of slot-machines"/>
+    </div>
+{% endblock %}

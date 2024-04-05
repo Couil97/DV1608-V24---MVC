@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">About</h1>
+    <hr>
+    <div class="content">
+        <div class="front-page-text">
+            <p>
+                MVC kursen handlar om objektorienterad programmering inom PHP. 
+                Inom denna kurs kommer vi använda oss av en hel del olika webbramverk, t.ex. Symfony och twig. 
+                Vi kommer även hantera databaser och fokusera på kodkvalite.
+                Kursen består utav 6 kursmoment samt ett examinerande slutprojekt (kmom 7/10).
+                Kursansvarig är Mikael Roos. Mikael och Marie Grahn sköter undervisningen.
+            </p>
+            <p>Kursens <a href="https://github.com/dbwebb-se/mvc">Github repo</a></p>
+            <p>Mitt <a href="https://github.com/Couil97/DV1608-V24---MVC">Github repo</a></p>
+        </div>
+        <img class="image" src="{{ asset('img/mvc-about.jpg') }}" alt="Picture of a man programming with code in the background"/>
+    </div>
+{% endblock %}

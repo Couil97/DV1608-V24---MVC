@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>Home</h1>
+    <hr>
+    <div class="content">
+        <div class="front-page-text">
+            <p>
+            Hej, mitt namn är Anton! 
+            Jag är en Datavetenskaps-student från Karlstad som älskar att programmera. 
+            Jag har programmerat självständingt i nu snart 3 år men är redo att finslipa mina kunskaper. 
+            Under denna kurs kommer jag att uppdatera denna sida i mitt <a href="https://github.com/Couil97/DV1608-V24---MVC">Github repo</a>! 
+            </p>
+        </div>
+        <img class="image front-page-image" src="{{ asset('img/home-portrait.jpg') }}" alt="Picture of a man"/>
+    </div>
+{% endblock %}
