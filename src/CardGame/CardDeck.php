@@ -42,19 +42,42 @@ class CardDeck
         shuffle($this->deck);
     }
 
-    public function showAll(): string
+    public function getAll(): array
     {
         $copy = $this->deck;
-        $result = '';
+
+        $values = [];
+        foreach ($copy as $card) {
+            $values[] = $card->getValues();
+        }
+
+        return $values;
+    }
+
+
+    public function getAllSorted(): array
+    {
+        $copy = $this->deck;
 
         usort($copy, function ($a, $b) {
-            if($a->getColor() == $b->getColor()) {
+            if($a->getSuit() == $b->getSuit()) {
                 return $a->getValue() > $b->getValue();
             }
-            return strcmp($a->getColor(), $b->getColor());
+            return strcmp($a->getSuit(), $b->getSuit());
         });
 
-        foreach($copy as $card) {
+        $values = [];
+        foreach ($copy as $card) {
+            $values[] = $card->getValues();
+        }
+
+        return $values;
+    }
+
+    public function showAll(): string
+    {
+        $result = '';
+        foreach ($this->deck as $card) {
             $result .= $card;
         }
 
@@ -66,16 +89,16 @@ class CardDeck
         for ($i = 0; $i < 52; $i++) {
             switch(true) {
                 case ($i < 13):
-                    $this->add(new CardGraphic((($i % 13) + 1), 'spade'));
+                    $this->add(new CardGraphic((($i % 13) + 1), 'black_spade'));
                     break;
                 case ($i >= 13 && $i < 26):
-                    $this->add(new CardGraphic((($i % 13) + 1), 'hearts'));
+                    $this->add(new CardGraphic((($i % 13) + 1), 'red_hearts'));
                     break;
                 case ($i >= 26 && $i < 39):
-                    $this->add(new CardGraphic((($i % 13) + 1), 'diamonds'));
+                    $this->add(new CardGraphic((($i % 13) + 1), 'red_diamonds'));
                     break;
                 case ($i >= 39):
-                    $this->add(new CardGraphic((($i % 13) + 1), 'clubs'));
+                    $this->add(new CardGraphic((($i % 13) + 1), 'black_clubs'));
                     break;
             }
         }

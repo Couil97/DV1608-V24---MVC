@@ -17,14 +17,34 @@ class CardGraphic extends Card
     private $jack =     "J";
 
     private $char;
-    private $suit;
+    private $graphicSuit;
+    private $color;
 
-    public function __construct(int $value, string $color)
+    public function __construct(int $value, string $suit)
     {
-        parent::__construct($value, $color); // Gets parent constructor
+        parent::__construct($value, $suit); // Gets parent constructor
 
+        switch($suit) {
+            case 'black_spade':
+                $this->graphicSuit = $this->spade;
+                $this->color = "black";
+                break;
+            case 'red_hearts':
+                $this->graphicSuit = $this->hearts;
+                $this->color = "red";
+                break;
+            case 'black_clubs':
+                $this->graphicSuit = $this->clubs;
+                $this->color = "black";
+                break;
+            case 'red_diamonds':
+                $this->graphicSuit = $this->diamonds;
+                $this->color = "red";
+                break;
+        }
+        
         if($value == 1) {
-            $this->char = '';
+            $this->char = "A";
         } elseif($value < 11) {
             $this->char = (string) $value;
         } else {
@@ -40,21 +60,6 @@ class CardGraphic extends Card
                     break;
             }
         }
-
-        switch($color) {
-            case 'spade':
-                $this->suit = $this->spade;
-                break;
-            case 'hearts':
-                $this->suit = $this->hearts;
-                break;
-            case 'clubs':
-                $this->suit = $this->clubs;
-                break;
-            case 'diamonds':
-                $this->suit = $this->diamonds;
-                break;
-        }
     }
 
     public function getChar(): string
@@ -63,7 +68,11 @@ class CardGraphic extends Card
     }
 
     public function getValues() : array {
-        return ["{$this->char}", "{$this->suit}"];
+        return [
+            "char" => "{$this->char}", 
+            "suit" => "{$this->graphicSuit}",
+            "color" => "{$this->color}"
+        ];
     }
 
     public function __toString(): string

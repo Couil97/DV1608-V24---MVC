@@ -7,12 +7,12 @@ use App\Dice\CardHand;
 class Card
 {
     protected int $value;
-    protected string $color;
+    protected string $suit;
 
-    public function __construct(int $value, string $color)
+    public function __construct(int $value, string $suit)
     {
         $this->value = $value;
-        $this->color = $color;
+        $this->suit = $suit;
     }
 
     public function getValue(): int
@@ -20,9 +20,9 @@ class Card
         return $this->value;
     }
 
-    public function getColor(): string
+    public function getSuit(): string
     {
-        return $this->color;
+        return $this->suit;
     }
 
     public function __toString(): string

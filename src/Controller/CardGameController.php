@@ -18,7 +18,13 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class CardGameController extends AbstractController
 {
     #[Route("/card", name: "card")]
-    public function lucky(SessionInterface $session): Response
+    public function card(SessionInterface $session): Response
+    {
+        return $this->render('card.twig');
+    }
+
+    #[Route("/card/deck", name: "card_deck")]
+    public function card_deck(SessionInterface $session): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -28,11 +34,33 @@ class CardGameController extends AbstractController
             $session->set('deck', new CardDeck());
         }
 
-        $session->get('deck')->showAll();
+        $deck = $session->get('deck');
 
         $data = [
+            'deck' => $deck->getAllSorted()
         ];
 
-        return $this->render('card.twig', $data);
+        return $this->render('card_deck.twig', $data);
+    }
+
+    #[Route("/card/shuffle", name: "card_shuffle")]
+    public function card_shuffle(SessionInterface $session): Response
+    {
+        if(!$session->isStarted()) {
+            $session->start();
+        }
+
+        if(!$session->has('deck')) {
+            $session->set('deck', new CardDeck());
+        }
+
+        $deck = $session->get('deck');
+        $deck->shuffle();
+
+        $data = [
+            'deck' => $deck->getAll()
+        ];
+
+        return $this->render('card_deck.twig', $data);
     }
 }
