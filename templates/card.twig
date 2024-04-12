@@ -31,7 +31,10 @@
             <br><br>
 
             <a href="{{path('card_deck')}}">Visa alla kort i decken</a><br>
-            <a href="{{path('card_shuffle')}}">Blanda korten och visa upp dem</a>
+            <a href="{{path('card_shuffle')}}">Blanda korten och visa upp dem</a><br>
+            <a href="{{path('card_draw')}}">Drar översta kortet i decken</a><br>
+            <a href="{{path('card_draw_multiple', {num: 5})}}">Dra de 5 första korten</a><br>
+            <a href="{{path('card_draw_multiple', {num: 10})}}">Dra de 10 första korten</a>
         </div>
         <img src="" alt="UML diagram of class hierarchy">
     </div>

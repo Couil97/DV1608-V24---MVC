@@ -8,6 +8,10 @@
     <div class="content">
         <div class="report-aside">
             <span class="api-route"><a href="/api/quote">Quote</a> - Visar ett slumpmässigt citat!</span>
+            <span class="api-route"><a href="{{ path('api_card_deck') }}">Deck</a> - Tar fram hela kortleken</span>
+            <span class="api-route"><a href="{{ path('api_card_shuffle') }}">Deck/Shuffle</a> - Blandar och tar fram hela kortleken</span>
+            <span class="api-route"><a href="{{ path('api_card_draw') }}">Draw</a> - Tar fram det översta kortet</span>
+            <span class="api-route"><a href="{{ path('api_card_draw_multiple', {num: 5}) }}">Draw:number</a> - Tar fram 5 kort</span>
         </div>
     </div>
 {% endblock %}

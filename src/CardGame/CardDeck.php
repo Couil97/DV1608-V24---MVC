@@ -20,25 +20,49 @@ class CardDeck
 
     public function remove(Card $card): void
     {
-        for($i = 0; i < count($this->deck); $i++) {
-            if($card->getValue() == $this->deck[$i]->getValue()
-            &&  $card->getColor() == $this->deck[$i]->getColor()) {
+        for($i = 0; $i < count($this->deck); $i++) {
+            if($card->getValue() == array_values($this->deck)[$i]->getValue()
+            &&  $card->getSuit() == array_values($this->deck)[$i]->getSuit()) {
                 unset($this->deck[$i]);
                 break;
             }
         }
     }
 
-    public function draw(CardHand $hand): void
+    public function draw(): array
     {
-        $card = $this->deck[0];
+        if($this->getNumberOfCards() < 1) {
+            return [];
+        }
 
-        $this->remove($card);
-        $hand->add($card);
+        $card = array_values($this->deck)[0];
+        array_splice($this->deck, 0, 1);
+
+        return [$card->getValues()];
+    }
+
+    public function drawMultiple(int $amount): array
+    {
+        if($this->getNumberOfCards() < 1) {
+            return [];
+        }
+
+        $cards = [];
+        for($i = 0; $i < $amount; $i++) {
+            array_push($cards, array_values($this->deck)[0]->getValues());
+            array_splice($this->deck, 0, 1);
+
+            if($this->getNumberOfCards() < 1) {
+                return $cards;
+            }
+        }
+
+        return $cards;
     }
 
     public function shuffle(): void
     {
+        $this->reset();
         shuffle($this->deck);
     }
 
@@ -86,6 +110,7 @@ class CardDeck
 
     public function reset(): void
     {
+        $this->deck = [];
         for ($i = 0; $i < 52; $i++) {
             switch(true) {
                 case ($i < 13):

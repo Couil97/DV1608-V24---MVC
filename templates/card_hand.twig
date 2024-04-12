@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <div class="cards-left">
+        Kort kvar i kortleken: {{ cardsLeft }}
+    </div>
+    <div class="card-deck">
+        {% for card in cards %}
+            <div class="card" style="color: {{ card.color }}">
+                <span class="card-char-1">{{ card.char }}</span>
+                <span class="card-suit">{{ card.suit }}</span>
+                <span class="card-char-2">{{ card.char }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>

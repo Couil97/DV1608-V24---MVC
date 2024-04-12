@@ -214,6 +214,11 @@ footer > a {
     padding-bottom: 12px;
 }
 
+.cards-left {
+    padding: 12px;
+    text-align: end;
+}
+
 .card-char-1 {
     align-self: start;
 }

@@ -6,15 +6,7 @@
     <h1 class="site-header">Card</h1>
     <hr>
     <div class="content">
-        <div class="card-deck">
-        {% for card in deck %}
-            <div class="card" style="color: {{ card.color }}">
-                <span class="card-char-1">{{ card.char }}</span>
-                <span class="card-suit">{{ card.suit }}</span>
-                <span class="card-char-2">{{ card.char }}</span>
-            </div>
-        {% endfor %}
-        </div>
+        {{ include('card_hand.twig') }}
         <img src="" alt="UML diagram of class hierarchy">
     </div>
 {% endblock %}

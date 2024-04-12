@@ -42,7 +42,7 @@ class CardGraphic extends Card
                 $this->color = "red";
                 break;
         }
-        
+
         if($value == 1) {
             $this->char = "A";
         } elseif($value < 11) {
@@ -67,9 +67,10 @@ class CardGraphic extends Card
         return $this->char or '';
     }
 
-    public function getValues() : array {
+    public function getValues(): array
+    {
         return [
-            "char" => "{$this->char}", 
+            "char" => "{$this->char}",
             "suit" => "{$this->graphicSuit}",
             "color" => "{$this->color}"
         ];
