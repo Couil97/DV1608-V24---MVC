@@ -1,28 +1,32 @@
 <?php
 
 namespace App\CardGame;
+
 use App\Dice\CardHand;
 
 class Card
 {
-    protected $value;
-    protected $color;
+    protected int $value;
+    protected string $color;
 
-    public function __construct(string $value, string $color)
+    public function __construct(int $value, string $color)
     {
         $this->value = $value;
         $this->color = $color;
     }
 
-    public function getValue() {
+    public function getValue(): int
+    {
         return $this->value;
     }
-    
-    public function getColor() {
+
+    public function getColor(): string
+    {
         return $this->color;
     }
 
-    public function getString() : string {
-        return $this->value;
+    public function __toString(): string
+    {
+        return $this->value . ' ' . $this->color;
     }
 }

@@ -28,8 +28,9 @@ class CardGameController extends AbstractController
             $session->set('deck', new CardDeck());
         }
 
+        $session->get('deck')->showAll();
+
         $data = [
-            "deck" => $session->get('deck')
         ];
 
         return $this->render('card.twig', $data);

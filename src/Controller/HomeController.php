@@ -61,7 +61,9 @@ class HomeController extends AbstractController
             $result .= "[" . $key . "]: " . $value . "\n";
         }
 
-        if(!$result) $result = "Session empty";
+        if(!$result) {
+            $result = "Session empty";
+        }
 
         $data = [
             'session' => $result
@@ -74,12 +76,30 @@ class HomeController extends AbstractController
     public function delete_session(SessionInterface $session): Response
     {
         $session->invalidate();
-        
+
         $this->addFlash(
             'notice',
             'Your session has been cleared'
         );
 
-        return $this->redirectToRoute('session');
+        $result = '';
+
+        if(!$session->isStarted()) {
+            $session->start();
+        }
+
+        foreach($session->all() as $key => $value) {
+            $result .= "[" . $key . "]: " . $value . "\n";
+        }
+
+        if(!$result) {
+            $result = "Session empty";
+        }
+
+        $data = [
+            'session' => $result
+        ];
+
+        return $this->render('session.twig', $data);
     }
 }
