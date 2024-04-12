@@ -77,6 +77,8 @@ main > .content {
     display: grid;
     grid-template-columns: calc(50% - 6px) calc(50% - 6px);
     gap: 12px;
+
+    flex-grow: 1;
 }
 
 main > .report {
@@ -155,3 +157,30 @@ footer > a {
     text-align: center;
 }
 
+.session {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+/* flash */
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
+}

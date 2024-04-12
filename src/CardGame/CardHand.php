@@ -16,6 +16,7 @@ class CardHand
             if( $card->getValue() == $this->hand[$i]->getValue() 
             &&  $card->getColor() == $this->hand[$i]->getColor()) {
                 unset($this->hand[$i]);
+                break;
             }
         }
     }

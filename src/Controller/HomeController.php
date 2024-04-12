@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,5 +46,40 @@ class HomeController extends AbstractController
         ];
 
         return $this->render('lucky.twig', $data);
+    }
+
+    #[Route("/session", name: "session")]
+    public function session(SessionInterface $session): Response
+    {
+        $result = '';
+
+        if(!$session->isStarted()) {
+            $session->start();
+        }
+
+        foreach($session->all() as $key => $value) {
+            $result .= "[" . $key . "]: " . $value . "\n";
+        }
+
+        if(!$result) $result = "Session empty";
+
+        $data = [
+            'session' => $result
+        ];
+
+        return $this->render('session.twig', $data);
+    }
+
+    #[Route("/session/delete", name: "delete_session")]
+    public function delete_session(SessionInterface $session): Response
+    {
+        $session->invalidate();
+        
+        $this->addFlash(
+            'notice',
+            'Your session has been cleared'
+        );
+
+        return $this->redirectToRoute('session');
     }
 }

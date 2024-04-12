@@ -14,10 +14,6 @@ class Card
         $this->color = $color;
     }
 
-    public function draw(cardDeck $deck) {
-        $deck->remove($this);
-    }
-
     public function getValue() {
         return $this->value;
     }

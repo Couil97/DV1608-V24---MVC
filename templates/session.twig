@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Session</h1>
+    <hr>
+    <div class="content">
+        <div class="session">
+            <p style="flex-grow:1;">{{ session }}</p>
+            {{ include('flash.html.twig') }}
+            <a style="align-self: end; padding: 12px; margin: 12px; border: 1px solid black; border-radius: 12px;" href="{{ path('delete_session') }}">Clear Session</a>
+        </div>
+
+    </div>
+{% endblock %}

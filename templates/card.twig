@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Card</h1>
+    <hr>
+    <div class="content">
+        <div class="card-landingpage">
+            Jag har 4 klasser:
+            <ul>   
+                <li>En bas klass för korten kallad "Card"</li>
+                <li>En grafisk klass för korten kallad "CardGraphic"</li>
+                <li>En klass för en korthand kallad "CardHand"</li>
+                <li>En klass för hela decken kallad "CardDeck"</li>
+            </ul>
+
+            Kort klasserna har ett siffer-värde samt ett färg-värde. Dessa representerar vilket number samt vilken typ korten är.
+            Handen har ett attribut "hand[]" som är en array av kort som just nu är i handen.
+            Decken har ett attribut "deck[]" som är en array av kort som är kvar i decken.
+
+            Både handen och decken har "add()" samt "remove()" metoder som lägger till respektive tar bort kort från handen/decken.
+            De har även en metod för att kolla mängden kort samt vilka kort som är kvar.
+            Decken kan "draw()" ett kort som tar bort det kortet från kortleken och lägger till det i handen.
+            Decken har även en metod kallad "reset()" som återställer decken till sitt ursprungliga utseende.
+
+            Kort har metoderna "getValue()", "getColor()" samt "__toString()" som get värdet på kortet, färgen på kortet samt utf-8 symbolen för kortet.
+        </div>
+        <img src="" alt="UML diagram of class hierarchy">
+    </div>
+{% endblock %}
