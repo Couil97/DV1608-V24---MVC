@@ -1,45 +1,34 @@
 <?php
 
-namespace App\Dice;
+namespace App\CardGame;
+use App\CardGame\Card;
 
-use App\Dice\Dice;
-
-class DiceHand
+class CardHand
 {
     private $hand = [];
 
-    public function add(Dice $die): void
-    {
-        $this->hand[] = $die;
+    public function add(Card $card) : void {
+        $this->hand[] = $card;
     }
 
-    public function roll(): void
-    {
-        foreach ($this->hand as $die) {
-            $die->roll();
+    public function remove(Card $card) : void {
+        for($i = 0; i < count($this->hand); $i++) {
+            if( $card->getValue() == $this->hand[$i]->getValue() 
+            &&  $card->getColor() == $this->hand[$i]->getColor()) {
+                unset($this->hand[$i]);
+            }
         }
     }
 
-    public function getNumberDices(): int
-    {
+    public function getNumberOfCards() : int {
         return count($this->hand);
     }
 
-    public function getValues(): array
-    {
-        $values = [];
-        foreach ($this->hand as $die) {
-            $values[] = $die->getValue();
-        }
-        return $values;
+    public function getCardsInHand() : array {
+        return $this->hand;
     }
 
-    public function getString(): array
-    {
-        $values = [];
-        foreach ($this->hand as $die) {
-            $values[] = $die->getAsString();
-        }
-        return $values;
+    public function getCardAt(int $i) : Card {
+        return $this->hand[$i];
     }
 }
