@@ -49,7 +49,52 @@
             <div class="kursmoment">
                 <h3 class="kmom-header">Kursmoment 2</h2>
                 <div id="kmom02" class="kursmoment-text">
-                    Här kommer redovisningstexten till kursmomentet.
+                    Arv betyder att en klass ärver metoder, konstruktorn eller attribut från en annan klass.
+                    Ofta använder man sig av någon form av bas-klass och seden utökar man den andra klassen med mer funktioner.
+
+                    class "Klassnamn" extends "Klass som ska ärvas" {
+                    }
+
+                    Komposition är att man kombinerar flera attribut till en och samma klass.
+                    T.ex. om man gör en klass person så kommer denna troligen ha ett namn och en ålder.
+                    Kombinationen av dess är komposition, man använder sig av flera attribut/metoder för att skapa ett objekt.
+
+                    I PHP kan det t.ex. se ut så här:
+                    private firstName;
+                    private lastName;
+                    private age;
+
+                    Interface är en klass som endast innehåller abstrakta metoder och attribut.
+                    Interface används för att skapa en sorts mall för de klasser som ärver från interfacet.
+                    Alla klasser som ärver från ett interface måste implementera de metoder och attribut som interfacet har definierat.
+
+                    Interface I"interface-namn" {
+                    }
+
+                    En trait är som ett återanvändbart kodblock.
+                    Man kan använda metoder och attribut från ett trait men man behöver inte ärva allting.
+                    Det liknar sig lite moduler i JavaScript t.ex.
+
+                    trait "trait-namn" {
+                    }
+                    ...
+
+                    use "trait-namn";
+
+                    Jag lösta uppgiften på ett liknande sätt till "pig-game" som vi gick igenom på föreläsningen.
+                    Jag valde att göra en basklass "Card" och en grafisk-klass "cardGraphic".
+
+                    Jag implementerade de metoder som behövdes för att göra alla uppgifter och sedan återanvände jag det mesta av koden till API:et.
+                    Jag är nöjd med koden och tyckte att korten faktiskt såg ganska bra ut.
+                    Jag tyckte att det blev lite slarvigt i kod uppsättningen, så jag skulle nog kunna snygga till koden lite.
+
+                    Sympfony har varit ganska lätt att komma igång med, men jag den har också haft sina jobbiga bitar också.
+                    Att man behöver rensa cachen har varit svårt att komma ihåg.
+                    Ibland så sitter jag med ett problem jättelänge innan jag kommer på att jag borde rensa cachen och försöka igen.
+                    Det flesta av de sakerna jag har fastnat på har varit p.g.a. att jag inte har rensa cachen.
+                    Annars har det gått relativt felfritt med MVC och Symfony.
+
+                    TIL hur man hanterar session med php/Symfony.
                 </div>
             </div>
             <div class="kursmoment">

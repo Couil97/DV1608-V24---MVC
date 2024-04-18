@@ -11,19 +11,17 @@
             <ul>   
                 <li>En bas klass för korten kallad "Card"</li>
                 <li>En grafisk klass för korten kallad "CardGraphic"</li>
-                <li>En klass för en korthand kallad "CardHand"</li>
                 <li>En klass för hela decken kallad "CardDeck"</li>
             </ul>
             <br><br>
 
             Kort klasserna har ett siffer-värde samt ett färg-värde. Dessa representerar vilket number samt vilken typ korten är.<br>
-            Handen har ett attribut "hand[]" som är en array av kort som just nu är i handen.<br>
             Decken har ett attribut "deck[]" som är en array av kort som är kvar i decken.
             <br><br>
 
-            Både handen och decken har "add()" samt "remove()" metoder som lägger till respektive tar bort kort från handen/decken.<br>
+            Decken har "add()" samt "remove()" metoder som lägger till respektive tar bort kort från decken.<br>
             De har även en metod för att kolla mängden kort samt vilka kort som är kvar.<br>
-            Decken kan "draw()" ett kort som tar bort det kortet från kortleken och lägger till det i handen.<br>
+            Decken kan "draw()" ett kort som tar bort det kortet från kortleken.<br>
             Decken har även en metod kallad "reset()" som återställer decken till sitt ursprungliga utseende.
             <br><br>
 
@@ -36,6 +34,6 @@
             <a href="{{path('card_draw_multiple', {num: 5})}}">Dra de 5 första korten</a><br>
             <a href="{{path('card_draw_multiple', {num: 10})}}">Dra de 10 första korten</a>
         </div>
-        <img src="" alt="UML diagram of class hierarchy">
+        <img src="{{ asset('img/class-diagram.jpeg') }}" alt="UML diagram of class hierarchy">
     </div>
 {% endblock %}
