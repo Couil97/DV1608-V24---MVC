@@ -1,3 +1,5 @@
+@import "twenty_one.css";
+
 header {
     height: 50px;
 }
@@ -79,6 +81,11 @@ main > .content {
     gap: 12px;
 
     flex-grow: 1;
+}
+
+main > .span-2 {
+    display: block !important;
+    width: 100%;
 }
 
 main > .report {
@@ -226,4 +233,13 @@ footer > a {
 .card-char-2 {
     align-self: end;
     rotate: 180deg;
+}
+
+.image-fit {
+    text-align: center;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+
+    padding: 12px;
 }

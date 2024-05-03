@@ -2,6 +2,11 @@
 
 namespace App\Controller;
 
+use App\CardGame\Card;
+use App\CardGame\CardDeck;
+use App\CardGame\CardGraphic;
+use App\CardGame\CardHand;
+
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +25,7 @@ class ApiController extends AbstractController
     #[Route("/api/quote", name: "quote")]
     public function quote(): Response
     {
-        $i = random_int(0, 3);
+        $random = random_int(0, 3);
         date_default_timezone_set('Europe/Stockholm');
 
         $quotes = [
@@ -31,7 +36,7 @@ class ApiController extends AbstractController
         ];
 
         $data = [
-            'qoute' => $quotes[$i],
+            'qoute' => $quotes[$random],
             'date' => date("d-m-y"),
             'timestamp' => date('H:i:s')
         ];
@@ -71,7 +76,7 @@ class ApiController extends AbstractController
     }
 
     #[Route("/api/deck/shuffle", name: "api_card_shuffle")]
-    public function deck_shuffle(SessionInterface $session): Response
+    public function deckShuffle(SessionInterface $session): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -98,7 +103,7 @@ class ApiController extends AbstractController
     }
 
     #[Route("/api/deck/draw", name: "api_card_draw")]
-    public function deck_draw(SessionInterface $session): Response
+    public function deckDraw(SessionInterface $session): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -125,7 +130,7 @@ class ApiController extends AbstractController
     }
 
     #[Route("/api/deck/draw/{num<\d+>}", name: "api_card_draw_multiple")]
-    public function deck_draw_multiple(SessionInterface $session, int $num): Response
+    public function deckDrawMultiple(SessionInterface $session, int $num): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -141,6 +146,44 @@ class ApiController extends AbstractController
         $data = [
             'cards' => $card,
             'cardsLeft' => $deck->getNumberOfCards()
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    #[Route("/api/game", name: "api_game")]
+    public function game(SessionInterface $session): Response
+    {
+        if(!$session->isStarted()) {
+            $session->start();
+        }
+
+        if(!$session->has('game-deck') || !$session->has('game-hand') || !$session->has('game-bank_hand')) {
+            $cardDeck = new CardDeck();
+            $cardDeck->shuffle();
+    
+            $session->set('game-hand', new CardHand());
+            $session->set('game-deck', $cardDeck);
+            $session->set('game-bank_hand', new CardHand());
+            $session->set('game-status', "Running");
+            $session->set('game-current_player', "Player");
+        }
+
+        $playerHand = $session->get('game-hand');
+        $bankHand = $session->get('game-bank_hand');
+        $status = $session->get('game-status');
+
+        $data = [
+            'player_value' => $playerHand->getSum(),
+            'bank_value' => $bankHand->getSum(),
+            'player_card_amount' => $playerHand->getNumberOfCards(),
+            'bank_card_amount' => $bankHand->getNumberOfCards(),
+            'game_status' => $status
         ];
 
         $response = new JsonResponse($data);

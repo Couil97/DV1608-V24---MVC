@@ -1,0 +1,78 @@
+.playing-field {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+}
+
+.gameboard {
+    height: 100%;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.game-info {
+    display: flex;
+    height: auto;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid black;
+
+    padding: 12px;
+    gap: 3px;
+}
+
+.game-finished {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.game-status {
+    font-size: 32pt;
+    font-weight: bold;
+}
+
+.card-hand-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px;
+}
+
+.card-hand-value {
+    width: 100%;
+    text-align: center;
+}
+
+.card-hand {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 180px;
+
+    gap: 3px;
+}

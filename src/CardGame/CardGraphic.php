@@ -16,7 +16,7 @@ class CardGraphic extends Card
     private $queen =    "♕";
     private $jack =     "J";
 
-    private $char;
+    private $char =     "";
     private $graphicSuit;
     private $color;
 
@@ -24,6 +24,12 @@ class CardGraphic extends Card
     {
         parent::__construct($value, $suit); // Gets parent constructor
 
+        $this->setSuit($suit);
+        $this->setValue($value);
+    }
+
+    private function setSuit($suit): void 
+    {
         switch($suit) {
             case 'black_spade':
                 $this->graphicSuit = $this->spade;
@@ -42,29 +48,32 @@ class CardGraphic extends Card
                 $this->color = "red";
                 break;
         }
+    }
 
+    private function setValue($value): void 
+    {
         if($value == 1) {
             $this->char = "A";
         } elseif($value < 11) {
             $this->char = (string) $value;
-        } else {
-            switch($this->getValue()) {
-                case 11:
-                    $this->char = $this->jack;
-                    break;
-                case 12:
-                    $this->char = $this->queen;
-                    break;
-                case 13:
-                    $this->char = $this->king;
-                    break;
-            }
+        }
+        
+        switch($this->getValue()) {
+            case 11:
+                $this->char = $this->jack;
+                break;
+            case 12:
+                $this->char = $this->queen;
+                break;
+            case 13:
+                $this->char = $this->king;
+                break;
         }
     }
 
     public function getChar(): string
     {
-        return $this->char or '';
+        return $this->char;
     }
 
     public function getValues(): array
@@ -78,6 +87,6 @@ class CardGraphic extends Card
 
     public function __toString(): string
     {
-        return "{$this->char}" . "{$this->suit}";
+        return "{$this->suit}" . " " . "{$this->char}";
     }
 }

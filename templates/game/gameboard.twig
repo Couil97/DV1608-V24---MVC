@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+    <div class="gameboard">
+        {{ include('game/hands/bank.twig') }}
+        {{ include('game/deck.twig') }}
+        {{ include('game/hands/player.twig') }}
+    </div>
+{% endblock %}

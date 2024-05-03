@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Spela 21 - Dokumentation{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Spela 21 - Dokumentation</h1>
+    <hr>
+    <div class="content">
+        <div class="game-landingpage">
+            <p>
+                <h2>Beskrivning</h2>
+                Jag kommer använda mig av de klasser jag gjorde i kmom02. Det vill säga Card, CardGraphic och CardDeck.
+            </p>
+
+            <p>
+                <h2>Psuedokod</h2>
+                Användaren startar spelet<br><br>
+
+                IF session inte finns THEN<br>
+                Skapa session<br>
+                Fyll på session med variabler (kortlek, spelar/bank hand, etc.)<br><br>
+
+                Rendera spelplanen<br><br>
+
+                REPEAT<br>
+                Fråga spelaren om de vill dra ett kort<br>
+                IF spelaren trycker på "dra kort" THEN<br>
+                Hämta och ta bort ett kort från kortleken<br>
+                Sätt kortet i spelarens hand<br>
+                UNTIL spelaren har över 21 eller spelaren passar turen till banken<br><br>
+
+                Banken drar kort<br>
+                IF banken har över 17 THEN<br>
+                Sluta dra kort<br><br>
+
+                IF banken har över 21 THEN<br>
+                Spelaren vinner<br>
+                ELSE IF banken har mindre än spelaren THEN<br>
+                Spelaren vinner<br>
+                ELSE banken vinner<br><br>
+
+                Rendera vinst/förlust och visa starta om knappen
+            </p>
+
+            <p>
+                <h2>Klasser</h2>
+
+                <p>
+                    Klass: Card<br>
+                    Ett kort som har ett värde och en färg.
+                </p>
+
+                <p>
+                    Klass: CardGraphic<br>
+                    En förlägning av Card som ger korten mer grafiska metoder.
+                </p>
+                
+                <p>
+                    Klass: CardDeck<br>
+                    En kortlek av "Card". Det är här både banken och spelaren kommer få sina kort från. 
+                </p>
+
+                <p>
+                    Klass: CardHand<br>
+                    En klass för att hålla kort som både användaren och banken drar från kortleken.
+                </p>
+            </p>
+        </div>
+        <img src="{{ asset('img/flowchart.png') }}" class="image-fit" alt="Flödesschema av 21-spelet">
+    </div>
+{% endblock %}

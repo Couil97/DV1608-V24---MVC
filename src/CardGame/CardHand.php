@@ -13,17 +13,6 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function remove(Card $card): void
-    {
-        for($i = 0; i < count($this->hand); $i++) {
-            if($card->getValue() == $this->hand[$i]->getValue()
-            &&  $card->getColor() == $this->hand[$i]->getColor()) {
-                unset($this->hand[$i]);
-                break;
-            }
-        }
-    }
-
     public function getNumberOfCards(): int
     {
         return count($this->hand);
@@ -34,8 +23,54 @@ class CardHand
         return $this->hand;
     }
 
-    public function getCardAt(int $i): Card
+    public function getSum(): int
     {
-        return $this->hand[$i];
+        $sum = 0;
+        $aces = 0;
+
+        for($i = 0; $i < $this->getNumberOfCards(); $i++) {
+            if($this->hand[$i]->getValue() == 1) {
+                $aces += 1;
+                continue;
+            }
+
+            $sum += $this->hand[$i]->getValue();
+        }
+        
+        while($aces > 0) {
+            $sum += 14;
+            $aces -= 1;
+
+            if($sum + $aces * 14 > 21) $sum -= 13;
+        }
+
+        return $sum;
+    }
+
+    public function getAll(): array
+    {
+        $copy = $this->hand;
+
+        $values = [];
+        foreach ($copy as $card) {
+            $values[] = $card->getValues();
+        }
+
+        return $values;
+    }
+
+    public function getCardAt(int $index): Card
+    {
+        return $this->hand[$index];
+    }
+
+    public function __toString(): string
+    {
+        $result = '';
+        foreach ($this->hand as $card) {
+            $result .= $card;
+        }
+
+        return $result;
     }
 }

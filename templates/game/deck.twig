@@ -1,0 +1,24 @@
+{% if status == "Running" %}
+    <div class="playing-field">
+        <div class="game-info">
+            <a href="{{path('game_draw')}}">Dra nytt kort</a> |
+
+            {% if player == "Player" %}
+                <a href="{{path('game_change_player')}}">Passa till banken</a> |
+            {% endif %}
+
+            <a href="{{path('game_reset')}}">Starta om</a>
+        </div>
+    </div>
+{% else %}
+    <div class="game-finished">
+        <div class="game-status">
+            {% if status == "Won" %}
+                <span style="color: green;">DU VANN</span>
+            {% else %}
+                <span style="color: red;">DU FÖRLORA</span>
+            {% endif %}
+        </div>
+        <a href="{{path('game_reset')}}">Starta om</a><br>
+    </div>
+{% endif %}

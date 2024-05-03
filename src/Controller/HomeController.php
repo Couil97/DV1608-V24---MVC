@@ -33,13 +33,10 @@ class HomeController extends AbstractController
     public function lucky(): Response
     {
         $number = random_int(0, 100);
+        $color = "#DB1200";
 
-        if($number > 50) {
-            $color = "#00DB16";
-        } else {
-            $color = "#DB1200";
-        }
-
+        if($number > 50) $color = "#00DB16";
+        
         $data = [
             'number' => $number,
             'color' => $color
@@ -51,21 +48,14 @@ class HomeController extends AbstractController
     #[Route("/session", name: "session")]
     public function session(SessionInterface $session): Response
     {
-        $result = '';
-
-        if(!$session->isStarted()) {
-            $session->start();
-        }
+        $result = ["Session empty"];
 
         foreach($session->all() as $key => $value) {
-            $result .= "[" . $key . "]: " . $value . "\n";
-        }
-
-        if(!$result) {
-            $result = "Session empty";
+            array_push($result, "[" . $key . "]: " . $value);
         }
 
         $data = [
+            'started' => $session->isStarted(),
             'session' => $result
         ];
 
@@ -73,7 +63,7 @@ class HomeController extends AbstractController
     }
 
     #[Route("/session/delete", name: "delete_session")]
-    public function delete_session(SessionInterface $session): Response
+    public function deleteSession(SessionInterface $session): Response
     {
         $session->invalidate();
 
@@ -89,7 +79,7 @@ class HomeController extends AbstractController
         }
 
         foreach($session->all() as $key => $value) {
-            $result .= "[" . $key . "]: " . $value . "\n";
+            $result .= "[" . $key . "]: " . $value . "\r\n";
         }
 
         if(!$result) {
@@ -97,6 +87,7 @@ class HomeController extends AbstractController
         }
 
         $data = [
+            'started' => $session->isStarted(),
             'session' => $result
         ];
 

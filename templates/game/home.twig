@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Spela 21{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Spela 21</h1>
+    <hr>
+    <div class="content">
+        <div class="game-landingpage">
+            Det här spelet går ut på att få mest poäng i slutet av spelet.<br><br>
+            Spelaren spelar mot banken som vinner om den har lika mycket som spelaren, högre än spelaren eller om spelaren drar mer än 21.<br><br>
+            Spelaren vinner om banken drar över 21 eller om banken stannar med mindre poäng än spelaren.<br><br>
+
+            <a href="{{path('game_reset')}}">Starta spelet!</a><br>
+            <a href="{{path('game_doc')}}">Dokumentation</a><br>
+        </div>
+        <img src="{{ asset('img/card_game.jpg') }}" class="image-fit" alt="Kort som faller neråt">
+    </div>
+{% endblock %}

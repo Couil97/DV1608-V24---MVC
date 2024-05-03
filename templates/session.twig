@@ -5,9 +5,22 @@
 {% block body %}
     <h1 class="site-header">Session</h1>
     <hr>
-    <div class="content">
+    <div class="content span-2">
         <div class="session">
-            <p style="flex-grow:1;">{{ session }}</p>
+            <p>Session: 
+                {% if started == false %}
+                    <span style="color: red;">Stopped</span>
+                {% else %}
+                    <span style="color: green;">Started</span>
+                {% endif %}
+            </p>
+            <div style="flex-grow:1; width:100%; height:100%; text-wrap:wrap;">
+                    {% for item in session %}
+                        <p>
+                            {{ item }}
+                        </p>
+                    {% endfor %}
+            </div>
 
             {{ include('flash.html.twig') }}
             

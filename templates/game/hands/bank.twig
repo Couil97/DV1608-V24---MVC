@@ -1,0 +1,15 @@
+<div class="card-hand-wrapper">
+    <div class="card-hand">
+        {% for card in bank %}
+            <div class="card" style="color: {{ card.color }}">
+                <span class="card-char-1">{{ card.char }}</span>
+                <span class="card-suit">{{ card.suit }}</span>
+                <span class="card-char-2">{{ card.char }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="card-hand-value">
+        Värde: {{ bank_value }}
+    </div>
+</div>

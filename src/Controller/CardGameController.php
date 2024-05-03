@@ -17,13 +17,13 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class CardGameController extends AbstractController
 {
     #[Route("/card", name: "card")]
-    public function card(SessionInterface $session): Response
+    public function card(): Response
     {
         return $this->render('card.twig');
     }
 
     #[Route("/card/deck", name: "card_deck")]
-    public function card_deck(SessionInterface $session): Response
+    public function cardDeck(SessionInterface $session): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -44,7 +44,7 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/shuffle", name: "card_shuffle")]
-    public function card_shuffle(SessionInterface $session): Response
+    public function cardShuffle(SessionInterface $session): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -66,7 +66,7 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/draw", name: "card_draw")]
-    public function card_draw(SessionInterface $session): Response
+    public function cardDraw(SessionInterface $session): Response
     {
         if(!$session->isStarted()) {
             $session->start();
@@ -88,7 +88,7 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/draw/{num<\d+>}", name: "card_draw_multiple")]
-    public function card_draw_multiple(SessionInterface $session, int $num): Response
+    public function cardDrawMultiple(SessionInterface $session, int $num): Response
     {
         if(!$session->isStarted()) {
             $session->start();

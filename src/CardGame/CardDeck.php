@@ -20,7 +20,7 @@ class CardDeck
 
     public function remove(Card $card): void
     {
-        for($i = 0; $i < count($this->deck); $i++) {
+        for($i = 0; $i < $this->getNumberOfCards(); $i++) {
             if($card->getValue() == array_values($this->deck)[$i]->getValue()
             &&  $card->getSuit() == array_values($this->deck)[$i]->getSuit()) {
                 unset($this->deck[$i]);
@@ -41,12 +41,17 @@ class CardDeck
         return [$card->getValues()];
     }
 
+    public function drawCard(): Card
+    {
+        $card = array_values($this->deck)[0];
+        array_splice($this->deck, 0, 1);
+
+        return $card;
+    }
+
+
     public function drawMultiple(int $amount): array
     {
-        if($this->getNumberOfCards() < 1) {
-            return [];
-        }
-
         $cards = [];
         for($i = 0; $i < $amount; $i++) {
             array_push($cards, array_values($this->deck)[0]->getValues());
@@ -83,11 +88,11 @@ class CardDeck
     {
         $copy = $this->deck;
 
-        usort($copy, function ($a, $b) {
-            if($a->getSuit() == $b->getSuit()) {
-                return $a->getValue() > $b->getValue();
+        usort($copy, function ($first, $second) {
+            if($first->getSuit() == $second->getSuit()) {
+                return $first->getValue() > $second->getValue();
             }
-            return strcmp($a->getSuit(), $b->getSuit());
+            return strcmp($first->getSuit(), $second->getSuit());
         });
 
         $values = [];
@@ -100,9 +105,9 @@ class CardDeck
 
     public function showAll(): string
     {
-        $result = '';
+        $result = '| ';
         foreach ($this->deck as $card) {
-            $result .= $card;
+            $result .= $card . " | ";
         }
 
         return $result;
@@ -116,13 +121,13 @@ class CardDeck
                 case ($i < 13):
                     $this->add(new CardGraphic((($i % 13) + 1), 'black_spade'));
                     break;
-                case ($i >= 13 && $i < 26):
+                case ($i < 26):
                     $this->add(new CardGraphic((($i % 13) + 1), 'red_hearts'));
                     break;
-                case ($i >= 26 && $i < 39):
+                case ($i < 39):
                     $this->add(new CardGraphic((($i % 13) + 1), 'red_diamonds'));
                     break;
-                case ($i >= 39):
+                default:
                     $this->add(new CardGraphic((($i % 13) + 1), 'black_clubs'));
                     break;
             }
@@ -139,9 +144,9 @@ class CardDeck
         return $this->deck;
     }
 
-    public function getCardAt(int $i): Card
+    public function getCardAt(int $index): Card
     {
-        return $this->deck[$i];
+        return $this->deck[$index];
     }
 
     public function __toString(): string
