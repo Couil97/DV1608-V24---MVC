@@ -29,6 +29,17 @@ class CardDeck
         }
     }
 
+    public function cardInDeck(array $card): bool
+    {
+        for($i = 0; $i < $this->getNumberOfCards(); $i++) {
+            if($card == array_values($this->deck)[$i]->getValues()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function draw(): array
     {
         if($this->getNumberOfCards() < 1) {
@@ -53,9 +64,11 @@ class CardDeck
     public function drawMultiple(int $amount): array
     {
         $cards = [];
-        for($i = 0; $i < $amount; $i++) {
+        for($i = 0; $i < $amount && $i < $this->getNumberOfCards(); $i++) {
             array_push($cards, array_values($this->deck)[0]->getValues());
             array_splice($this->deck, 0, 1);
+
+            $i--;
 
             if($this->getNumberOfCards() < 1) {
                 return $cards;
@@ -90,7 +103,7 @@ class CardDeck
 
         usort($copy, function ($first, $second) {
             if($first->getSuit() == $second->getSuit()) {
-                return $first->getValue() > $second->getValue();
+                return $first->getValue() - $second->getValue();
             }
             return strcmp($first->getSuit(), $second->getSuit());
         });

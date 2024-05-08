@@ -71,6 +71,16 @@ class CardGraphic extends Card
         }
     }
 
+    public function getColor(): string 
+    {
+        return $this->color;
+    }
+
+    public function getGraphicSuit(): string 
+    {
+        return $this->graphicSuit;
+    }
+
     public function getChar(): string
     {
         return $this->char;
