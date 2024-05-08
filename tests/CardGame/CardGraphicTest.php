@@ -21,7 +21,7 @@ class CardGraphicTest extends TestCase
     /**
      * Validates that all suits can be set
      */
-    public function testSuits() 
+    public function testSuits()
     {
         $card = new CardGraphic(2, "black_spade");
 
@@ -47,34 +47,44 @@ class CardGraphicTest extends TestCase
     /**
      * Validate that all cards can be created and that they have the right char associated to them
      */
-    public function testNumbers() 
+    public function testNumbers()
     {
         for($i = 1; $i < 14; $i++) {
             $card = new CardGraphic($i, "black_spade");
 
             if($i == 1) {
                 $this->assertEquals($card->getChar(), "A");
-            } else if($i < 11) {
+                continue;
+            } 
+            
+            if($i < 11) {
                 $this->assertEquals($card->getChar(), strval($i));
-            } else if($i == 11) {
+                continue;
+            } 
+            
+            if($i == 11) {
                 $this->assertEquals($card->getChar(), "J");
-            } else if($i == 12) {
+                continue;
+            } 
+            
+            if($i == 12) {
                 $this->assertEquals($card->getChar(), "♕");
-            } else if($i == 13) {
-                $this->assertEquals($card->getChar(), "♔");
+                continue;
             }
+
+            $this->assertEquals($card->getChar(), "♔");
         }
     }
 
     /**
      * Validate that getValues returns an array with 3 keys and that those keys are correct
      */
-    public function testValues() 
+    public function testValues()
     {
         $card = new CardGraphic(1, "red_diamonds");
 
         $values = $card->getValues();
-        
+
         $this->assertIsArray($values);
 
         $this->assertEquals($values['char'], "A");
@@ -85,7 +95,7 @@ class CardGraphicTest extends TestCase
     /**
      * Validates that the toString method returns a string
      */
-    public function testToString() 
+    public function testToString()
     {
         $card = new CardGraphic(12, "clubs");
 

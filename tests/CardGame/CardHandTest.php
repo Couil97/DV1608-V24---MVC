@@ -25,7 +25,7 @@ class CardHandTest extends TestCase
     public function testCardAdd()
     {
         $hand = new CardHand();
-        $card = new CardGraphic(1,"red_diamonds");
+        $card = new CardGraphic(1, "red_diamonds");
 
         $hand->add($card);
 
@@ -41,37 +41,37 @@ class CardHandTest extends TestCase
     public function testSumOfCards()
     {
         $hand = new CardHand();
-        $hand->add(new CardGraphic(2,"red_diamonds"));
-        $hand->add(new CardGraphic(4,"red_diamonds"));
-        $hand->add(new CardGraphic(6,"red_diamonds"));
-        $hand->add(new CardGraphic(10,"red_diamonds"));
+        $hand->add(new CardGraphic(2, "red_diamonds"));
+        $hand->add(new CardGraphic(4, "red_diamonds"));
+        $hand->add(new CardGraphic(6, "red_diamonds"));
+        $hand->add(new CardGraphic(10, "red_diamonds"));
 
         $exp = 22;
 
         $this->assertEquals($hand->getSum(), $exp);
 
         $hand = new CardHand();
-        $hand->add(new CardGraphic(1,"red_diamonds")); // Ace -> 14
-        $hand->add(new CardGraphic(4,"red_diamonds"));
-        $hand->add(new CardGraphic(3,"red_diamonds"));
+        $hand->add(new CardGraphic(1, "red_diamonds")); // Ace -> 14
+        $hand->add(new CardGraphic(4, "red_diamonds"));
+        $hand->add(new CardGraphic(3, "red_diamonds"));
 
         $exp = 21;
 
         $this->assertEquals($hand->getSum(), $exp);
 
         $hand = new CardHand();
-        $hand->add(new CardGraphic(1,"red_diamonds")); // Ace -> 1 (since it's over 21 otherwise)
-        $hand->add(new CardGraphic(4,"red_diamonds"));
-        $hand->add(new CardGraphic(4,"red_diamonds"));
+        $hand->add(new CardGraphic(1, "red_diamonds")); // Ace -> 1 (since it's over 21 otherwise)
+        $hand->add(new CardGraphic(4, "red_diamonds"));
+        $hand->add(new CardGraphic(4, "red_diamonds"));
 
         $exp = 9;
 
         $this->assertEquals($hand->getSum(), $exp);
 
         $hand = new CardHand();
-        $hand->add(new CardGraphic(13,"red_diamonds")); 
-        $hand->add(new CardGraphic(12,"red_diamonds"));
-        $hand->add(new CardGraphic(1,"red_diamonds")); // Ace -> 1 (since it's over 21 otherwise)
+        $hand->add(new CardGraphic(13, "red_diamonds"));
+        $hand->add(new CardGraphic(12, "red_diamonds"));
+        $hand->add(new CardGraphic(1, "red_diamonds")); // Ace -> 1 (since it's over 21 otherwise)
 
         $exp = 26;
 
@@ -93,11 +93,11 @@ class CardHandTest extends TestCase
 
         $this->assertIsArray($all);
         $this->assertEquals(sizeOf($all), 4);
-        
-        $this->assertEquals("red",      $all[0]["color"]);
-        $this->assertEquals("black",    $all[1]["color"]);
-        $this->assertEquals("red",      $all[2]["color"]);
-        $this->assertEquals("black",    $all[3]["color"]);
+
+        $this->assertEquals("red", $all[0]["color"]);
+        $this->assertEquals("black", $all[1]["color"]);
+        $this->assertEquals("red", $all[2]["color"]);
+        $this->assertEquals("black", $all[3]["color"]);
     }
 
     /**
@@ -117,7 +117,7 @@ class CardHandTest extends TestCase
     /**
      * Validates that the toString method returns a string
      */
-    public function testToString() 
+    public function testToString()
     {
         $hand = new CardHand();
         $this->assertIsString("" . $hand);

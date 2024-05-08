@@ -36,12 +36,14 @@ class CardHand
 
             $sum += $this->hand[$i]->getValue();
         }
-        
+
         while($aces > 0) {
             $sum += 14;
             $aces -= 1;
 
-            if($sum + $aces * 14 > 21) $sum -= 13;
+            if($sum + $aces * 14 > 21) {
+                $sum -= 13;
+            }
         }
 
         return $sum;

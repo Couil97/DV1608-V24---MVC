@@ -8,32 +8,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\CardGame\\Card\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020for\u0020Card.\u0020Takes\u0020values\u0020at\u0020initialization\u0020and\u0020applies\u0020it\u0020to\u0020the\u0020object",
             "url": "classes/App-CardGame-Card.html#method___construct"
         },                {
             "fqsen": "\\App\\CardGame\\Card\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020value\u0020of\u0020the\u0020card\u0020\u0028number\u0029",
             "url": "classes/App-CardGame-Card.html#method_getValue"
         },                {
             "fqsen": "\\App\\CardGame\\Card\u003A\u003AgetSuit\u0028\u0029",
             "name": "getSuit",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020current\u0020suit\u0020of\u0020the\u0020card",
             "url": "classes/App-CardGame-Card.html#method_getSuit"
         },                {
             "fqsen": "\\App\\CardGame\\Card\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "",
+            "summary": "Converts\u0020the\u0020card\u0020into\u0020a\u0020readable\u0020string",
             "url": "classes/App-CardGame-Card.html#method___toString"
         },                {
             "fqsen": "\\App\\CardGame\\Card\u003A\u003A\u0024value",
             "name": "value",
-            "summary": "",
+            "summary": "Cards\u0020number\u0020value",
             "url": "classes/App-CardGame-Card.html#property_value"
         },                {
             "fqsen": "\\App\\CardGame\\Card\u003A\u003A\u0024suit",
             "name": "suit",
-            "summary": "",
+            "summary": "Cards\u0020suit\u0020value",
             "url": "classes/App-CardGame-Card.html#property_suit"
         },                {
             "fqsen": "\\App\\CardGame\\CardDeck",
@@ -55,6 +55,11 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-CardGame-CardDeck.html#method_remove"
+        },                {
+            "fqsen": "\\App\\CardGame\\CardDeck\u003A\u003AcardInDeck\u0028\u0029",
+            "name": "cardInDeck",
+            "summary": "",
+            "url": "classes/App-CardGame-CardDeck.html#method_cardInDeck"
         },                {
             "fqsen": "\\App\\CardGame\\CardDeck\u003A\u003Adraw\u0028\u0029",
             "name": "draw",
@@ -128,37 +133,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.\u0020Initializes\u0020the\u0020object\u0020and\u0020sets\u0020its\u0020values",
             "url": "classes/App-CardGame-CardGraphic.html#method___construct"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003AsetSuit\u0028\u0029",
             "name": "setSuit",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020graphical\u0020suit\u0020of\u0020the\u0020card\u0020based\u0020on\u0020suit\u0020given\u0020in\u0020the\u0020constructor",
             "url": "classes/App-CardGame-CardGraphic.html#method_setSuit"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003AsetValue\u0028\u0029",
             "name": "setValue",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020character\u0020of\u0020the\u0020card\u0020based\u0020on\u0020value\u0020given\u0020in\u0020the\u0020constructor",
             "url": "classes/App-CardGame-CardGraphic.html#method_setValue"
+        },                {
+            "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003AgetColor\u0028\u0029",
+            "name": "getColor",
+            "summary": "Gets\u0020the\u0020color\u0020of\u0020the\u0020card",
+            "url": "classes/App-CardGame-CardGraphic.html#method_getColor"
+        },                {
+            "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003AgetGraphicSuit\u0028\u0029",
+            "name": "getGraphicSuit",
+            "summary": "Gets\u0020the\u0020graphical\u0020suit\u0020of\u0020the\u0020card",
+            "url": "classes/App-CardGame-CardGraphic.html#method_getGraphicSuit"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003AgetChar\u0028\u0029",
             "name": "getChar",
-            "summary": "",
+            "summary": "Gets\u0020the\u0020character\u0020of\u0020the\u0020card",
             "url": "classes/App-CardGame-CardGraphic.html#method_getChar"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003AgetValues\u0028\u0029",
             "name": "getValues",
-            "summary": "",
+            "summary": "Gets\u0020all\u0020values\u0020of\u0020the\u0020card\u0020\u0028character,\u0020graphical\u0020suit\u0020and\u0020color\u0029",
             "url": "classes/App-CardGame-CardGraphic.html#method_getValues"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "",
+            "summary": "Generates\u0020a\u0020string\u0020that\u0020represents\u0020the\u0020card\u0020and\u0020its\u0020values",
             "url": "classes/App-CardGame-CardGraphic.html#method___toString"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024spade",
             "name": "spade",
-            "summary": "",
+            "summary": "The\u0020cards\u0020possible\u0020graphical\u0020suits\n1.\u0020Spade\n2.\u0020Hearts\n3.\u0020Diamonds\n4.\u0020Clover",
             "url": "classes/App-CardGame-CardGraphic.html#property_spade"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024hearts",
@@ -178,7 +193,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024king",
             "name": "king",
-            "summary": "",
+            "summary": "Graphical\u0020representaion\u0020of\u0020the\u0020a\u0020cards\u0020value.\u0020Numbers\u0020use\u0020the\u0020numbers\u00202\u002D10\u0020whlies\u0020face\u0020cards\u0020and\u0020aces\u0020use\u0020their\u0020graphical\u0020representation",
             "url": "classes/App-CardGame-CardGraphic.html#property_king"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024queen",
@@ -191,19 +206,24 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-CardGame-CardGraphic.html#property_jack"
         },                {
+            "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024ace",
+            "name": "ace",
+            "summary": "",
+            "url": "classes/App-CardGame-CardGraphic.html#property_ace"
+        },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024char",
             "name": "char",
-            "summary": "",
+            "summary": "Local\u0020variable\u0020for\u0020storing\u0020the\u0020character",
             "url": "classes/App-CardGame-CardGraphic.html#property_char"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024graphicSuit",
             "name": "graphicSuit",
-            "summary": "",
+            "summary": "Local\u0020variable\u0020for\u0020storing\u0020the\u0020cards\u0020graphical\u0020representation",
             "url": "classes/App-CardGame-CardGraphic.html#property_graphicSuit"
         },                {
             "fqsen": "\\App\\CardGame\\CardGraphic\u003A\u003A\u0024color",
             "name": "color",
-            "summary": "",
+            "summary": "Local\u0020variable\u0020for\u0020storing\u0020the\u0020color",
             "url": "classes/App-CardGame-CardGraphic.html#property_color"
         },                {
             "fqsen": "\\App\\CardGame\\CardHand",

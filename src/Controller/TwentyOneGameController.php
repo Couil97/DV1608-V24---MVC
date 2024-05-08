@@ -135,7 +135,8 @@ class TwentyOneGameController extends AbstractController
         return $this->render('game/doc.twig');
     }
 
-    public function validateSession($session) {
+    public function validateSession($session)
+    {
         if(!$session) {
             return $this->redirectToRoute('game_reset');
         }
@@ -145,7 +146,8 @@ class TwentyOneGameController extends AbstractController
         }
     }
 
-    public function drawCard($session) {
+    public function drawCard($session)
+    {
         // Sets variables
         $cardDeck = $session->get('game-deck');
         $cardHand = $session->get('game-hand');
@@ -159,8 +161,8 @@ class TwentyOneGameController extends AbstractController
             if($cardHand->getSum() > 21) {
                 $session->set('game-status', "Lost");
             }
-        } 
-        
+        }
+
         if ($session->get('game-current_player') != "Player") {
             // Bank draw cards until they're over 17
             while($bankHand->getSum() < 17) {
@@ -170,7 +172,9 @@ class TwentyOneGameController extends AbstractController
             $session->set('game-status', "Lost");
 
             // If bank goes over 21 or if bank has lower value than player, player wins
-            if($bankHand->getSum() > 21 || $bankHand->getSum() < $cardHand->getSum()) $session->set('game-status', "Won");
+            if($bankHand->getSum() > 21 || $bankHand->getSum() < $cardHand->getSum()) {
+                $session->set('game-status', "Won");
+            }
         }
 
         $session->set('game-deck', $cardDeck);

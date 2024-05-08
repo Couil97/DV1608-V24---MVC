@@ -21,7 +21,7 @@ class CardTest extends TestCase
     /**
      * Validates that Card can store and return value and suit
      */
-    public function testValues() 
+    public function testValues()
     {
         $card = new Card(12, "black_spade");
 
@@ -32,7 +32,7 @@ class CardTest extends TestCase
     /**
      * Validates that the toString method returns a string
      */
-    public function testToString() 
+    public function testToString()
     {
         $card = new Card(12, "black_spade");
 

@@ -164,11 +164,19 @@
     <span>
                         &nbsp;: string            </span>
 </dt>
+<dd>Cards suit value</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/App-CardGame-Card.html#property_value">$value</a>
     <span>
                         &nbsp;: int            </span>
+</dt>
+<dd>Cards number value</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/App-CardGame-CardGraphic.html#property_ace">$ace</a>
+    <span>
+                        &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
@@ -176,6 +184,7 @@
     <span>
                         &nbsp;: mixed            </span>
 </dt>
+<dd>Local variable for storing the character</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-CardGame-CardGraphic.html#property_clubs">$clubs</a>
@@ -188,6 +197,7 @@
     <span>
                         &nbsp;: mixed            </span>
 </dt>
+<dd>Local variable for storing the color</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-CardGame-CardGraphic.html#property_diamonds">$diamonds</a>
@@ -200,6 +210,7 @@
     <span>
                         &nbsp;: mixed            </span>
 </dt>
+<dd>Local variable for storing the cards graphical representation</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-CardGame-CardGraphic.html#property_hearts">$hearts</a>
@@ -218,6 +229,7 @@
     <span>
                         &nbsp;: mixed            </span>
 </dt>
+<dd>Graphical representaion of the a cards value. Numbers use the numbers 2-10 whlies face cards and aces use their graphical representation</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-CardGame-CardGraphic.html#property_queen">$queen</a>
@@ -230,6 +242,11 @@
     <span>
                         &nbsp;: mixed            </span>
 </dt>
+<dd>The cards possible graphical suits
+1. Spade
+2. Hearts
+3. Diamonds
+4. Clover</dd>
 
     </dl>
 
@@ -244,48 +261,70 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Constructor. Initializes the object and sets its values</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-CardGame-CardGraphic.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Generates a string that represents the card and its values</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-CardGame-CardGraphic.html#method_getChar">getChar()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Gets the character of the card</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-CardGame-CardGraphic.html#method_getColor">getColor()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets the color of the card</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-CardGame-CardGraphic.html#method_getGraphicSuit">getGraphicSuit()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets the graphical suit of the card</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-CardGame-Card.html#method_getSuit">getSuit()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Gets the current suit of the card</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-CardGame-Card.html#method_getValue">getValue()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
+<dd>Gets the value of the card (number)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-CardGame-CardGraphic.html#method_getValues">getValues()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
+<dd>Gets all values of the card (character, graphical suit and color)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-CardGame-CardGraphic.html#method_setSuit">setSuit()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Sets the graphical suit of the card based on suit given in the constructor</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/App-CardGame-CardGraphic.html#method_setValue">setValue()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Sets the character of the card based on value given in the constructor</dd>
 
     </dl>
 
@@ -318,11 +357,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/Card.php"><a href="files/src-cardgame-card.html"><abbr title="src/CardGame/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Cards suit value</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -351,16 +391,50 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/Card.php"><a href="files/src-cardgame-card.html"><abbr title="src/CardGame/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Cards number value</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">$value</span>
     </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_ace">
+        $ace
+        <a href="classes/App-CardGame-CardGraphic.html#property_ace" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$ace</span>
+     = <span class="phpdocumentor-signature__default-value">&quot;A&quot;</span></code>
 
     
     
@@ -384,11 +458,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Local variable for storing the character</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -417,7 +492,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -450,11 +525,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Local variable for storing the color</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -483,7 +559,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
@@ -516,11 +592,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Local variable for storing the cards graphical representation</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -549,7 +626,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -582,7 +659,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -615,11 +692,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Graphical representaion of the a cards value. Numbers use the numbers 2-10 whlies face cards and aces use their graphical representation</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -648,7 +726,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -681,11 +759,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">14</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">The cards possible graphical suits
+1. Spade
+2. Hearts
+3. Diamonds
+4. Clover</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -719,11 +802,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Constructor. Initializes the object and sets its values</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$suit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -767,11 +851,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">144</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Generates a string that represents the card and its values</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -802,14 +887,87 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets the character of the card</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getChar</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getColor">
+        getColor()
+        <a href="classes/App-CardGame-CardGraphic.html#method_getColor" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the color of the card</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getColor</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getGraphicSuit">
+        getGraphicSuit()
+        <a href="classes/App-CardGame-CardGraphic.html#method_getGraphicSuit" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">113</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets the graphical suit of the card</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getGraphicSuit</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -837,11 +995,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/Card.php"><a href="files/src-cardgame-card.html"><abbr title="src/CardGame/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets the current suit of the card</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSuit</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -872,11 +1031,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/Card.php"><a href="files/src-cardgame-card.html"><abbr title="src/CardGame/Card.php">Card.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets the value of the card (number)</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
@@ -907,11 +1067,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets all values of the card (character, graphical suit and color)</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
@@ -942,11 +1103,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Sets the graphical suit of the card based on suit given in the constructor</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">setSuit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$suit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -983,11 +1145,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/CardGame/CardGraphic.php"><a href="files/src-cardgame-cardgraphic.html"><abbr title="src/CardGame/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Sets the character of the card based on value given in the constructor</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">setValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -1125,6 +1288,7 @@
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/App-CardGame-Card.html#property_suit">$suit<a href="classes/App-CardGame-CardGraphic.html"></li>
                                                     <li><a href="classes/App-CardGame-Card.html#property_value">$value<a href="classes/App-CardGame-CardGraphic.html"></li>
+                                                    <li><a href="classes/App-CardGame-CardGraphic.html#property_ace">$ace<a href="classes/App-CardGame-CardGraphic.html"></li>
                                                     <li><a href="classes/App-CardGame-CardGraphic.html#property_char">$char<a href="classes/App-CardGame-CardGraphic.html"></li>
                                                     <li><a href="classes/App-CardGame-CardGraphic.html#property_clubs">$clubs<a href="classes/App-CardGame-CardGraphic.html"></li>
                                                     <li><a href="classes/App-CardGame-CardGraphic.html#property_color">$color<a href="classes/App-CardGame-CardGraphic.html"></li>
@@ -1144,6 +1308,8 @@
                                             <li><a href="classes/App-CardGame-CardGraphic.html#method___construct">__construct()</a></li>
                                             <li><a href="classes/App-CardGame-CardGraphic.html#method___toString">__toString()</a></li>
                                             <li><a href="classes/App-CardGame-CardGraphic.html#method_getChar">getChar()</a></li>
+                                            <li><a href="classes/App-CardGame-CardGraphic.html#method_getColor">getColor()</a></li>
+                                            <li><a href="classes/App-CardGame-CardGraphic.html#method_getGraphicSuit">getGraphicSuit()</a></li>
                                             <li><a href="classes/App-CardGame-Card.html#method_getSuit">getSuit()</a></li>
                                             <li><a href="classes/App-CardGame-Card.html#method_getValue">getValue()</a></li>
                                             <li><a href="classes/App-CardGame-CardGraphic.html#method_getValues">getValues()</a></li>

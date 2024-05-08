@@ -35,8 +35,10 @@ class HomeController extends AbstractController
         $number = random_int(0, 100);
         $color = "#DB1200";
 
-        if($number > 50) $color = "#00DB16";
-        
+        if($number > 50) {
+            $color = "#00DB16";
+        }
+
         $data = [
             'number' => $number,
             'color' => $color

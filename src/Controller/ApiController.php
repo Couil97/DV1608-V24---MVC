@@ -166,7 +166,7 @@ class ApiController extends AbstractController
         if(!$session->has('game-deck') || !$session->has('game-hand') || !$session->has('game-bank_hand')) {
             $cardDeck = new CardDeck();
             $cardDeck->shuffle();
-    
+
             $session->set('game-hand', new CardHand());
             $session->set('game-deck', $cardDeck);
             $session->set('game-bank_hand', new CardHand());

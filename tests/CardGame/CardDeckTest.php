@@ -29,7 +29,7 @@ class CardDeckTest extends TestCase
         $deck->reset();
         $exp = 52;
 
-        $this->assertEquals(52, $deck->getNumberOfCards());
+        $this->assertEquals($exp, $deck->getNumberOfCards());
 
         foreach ($deck->getCardsInDeck() as $card) {
             $this->assertInstanceOf("\App\CardGame\Card", $card);
@@ -91,7 +91,8 @@ class CardDeckTest extends TestCase
      * Validate that drawMultiple() draws multiple cards and removes them from the deck
      * Also validates that when the deck has less than desired amount, it returns only the remaining cards
      */
-    public function testDrawMultipleCards() {
+    public function testDrawMultipleCards()
+    {
         $deck = new CardDeck();
         $card = $deck->drawMultiple(52);
 
@@ -110,11 +111,12 @@ class CardDeckTest extends TestCase
         $exp = [];
         $this->assertEquals($exp, $card);
     }
-    
+
     /**
      * Validates that shuffle actually shuffles cards
      */
-    public function testShuffle() {
+    public function testShuffle()
+    {
         $first  = new CardDeck();
         $second = new CardDeck();
 
@@ -128,7 +130,8 @@ class CardDeckTest extends TestCase
     /**
      * Validates that getAll() gets all remaning cards in the deck and returns their values
      */
-    public function testGetAll() {
+    public function testGetAll()
+    {
         $deck = new CardDeck();
 
         $exp = 52;
@@ -147,7 +150,8 @@ class CardDeckTest extends TestCase
      * Validates that getAllSorted() gets all remaning cards in the deck and returns their values in a sorted manner
      * If two decks get sorted, they should equal eachother
      */
-    public function testGetAllSorted() {
+    public function testGetAllSorted()
+    {
         $first  = new CardDeck();
         $second = new CardDeck();
 
@@ -165,7 +169,8 @@ class CardDeckTest extends TestCase
     /**
      * Validates that showAll() returns a string of all cards in the deck (this is used for debugging only)
      */
-    public function testShowAll() {
+    public function testShowAll()
+    {
         $deck  = new CardDeck();
 
         $this->assertIsString($deck->showAll());
@@ -174,9 +179,9 @@ class CardDeckTest extends TestCase
     /**
      * Validates that getCardAt() returns object of type Card and that the card exists in the deck
      */
-    public function testGetCardAt() {
+    public function testGetCardAt()
+    {
         $deck  = new CardDeck();
-
         $card = $deck->getCardAt(0);
 
         $exp = 52;
@@ -188,7 +193,8 @@ class CardDeckTest extends TestCase
     /**
      * Validates that getCardAt() returns object of type Card and that the card exists in the deck
      */
-    public function testToString() {
+    public function testToString()
+    {
         $deck  = new CardDeck();
 
         $this->assertIsString("" . $deck);

@@ -60,7 +60,6 @@ class CardDeck
         return $card;
     }
 
-
     public function drawMultiple(int $amount): array
     {
         $cards = [];
@@ -95,7 +94,6 @@ class CardDeck
 
         return $values;
     }
-
 
     public function getAllSorted(): array
     {
@@ -157,7 +155,7 @@ class CardDeck
         return $this->deck;
     }
 
-    public function getCardAt(int $index): Card
+    public function getCardAt(int $index): CardGraphic
     {
         return $this->deck[$index];
     }
