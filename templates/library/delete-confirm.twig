@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library - View{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Library - View</h1>
+    <hr>
+    <div class="content table-of-contents">
+        {{ include('library/navigation.twig') }}
+        <div class="library-content">
+            <div class="library-delete-confirm">
+                Är du säker på att du vill ta bort alla böcker i biblioteket?
+                <div class="button-group">
+                    <div class="library-button button-warning"><a href="{{path('library_delete_all')}}">Ja</a></div>
+                    <div class="library-button button-success"><a href="{{path('library')}}">Nej</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

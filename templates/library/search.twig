@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library - {{ title }}{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Library - {{ title }}</h1>
+    <hr>
+    <div class="content table-of-contents">
+        {{ include('library/navigation.twig') }}
+        <div class="library-content">
+            {{ include('flash.html.twig') }}
+            <form action="{{path('library_view_type', {type} )}}" method="POST">
+                <div class="input-group">
+                    <label class="library-create-input-label" for="search">{{ title }}</label>
+                    <input class="library-create-input" id="search" name="search" type="text" placeholder="{{ placeholder }}.."/>
+                </div>
+            <input class="library-button button-primary button-right" type="submit" value="Sök"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

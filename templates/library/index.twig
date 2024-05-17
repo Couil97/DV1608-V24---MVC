@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Library</h1>
+    <hr>
+    <div class="content table-of-contents">
+        {{ include('library/navigation.twig') }}
+        <div class="library-content">
+            {{ include('flash.html.twig') }}
+            <h2>Välkommen till biblioteket!</h2>
+            <p>
+                Här kan du finna ett mängd olika böcker att läsa. Just nu finns det <strong>{{ total }} böcker</strong> i biblioteket.
+                Här kan du navigera genom bilioteket:
+            </p>
+        </div>
+    </div>
+{% endblock %}

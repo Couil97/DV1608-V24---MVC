@@ -55,18 +55,18 @@ class CardGraphicTest extends TestCase
             if($i == 1) {
                 $this->assertEquals($card->getChar(), "A");
                 continue;
-            } 
-            
+            }
+
             if($i < 11) {
                 $this->assertEquals($card->getChar(), strval($i));
                 continue;
-            } 
-            
+            }
+
             if($i == 11) {
                 $this->assertEquals($card->getChar(), "J");
                 continue;
-            } 
-            
+            }
+
             if($i == 12) {
                 $this->assertEquals($card->getChar(), "♕");
                 continue;

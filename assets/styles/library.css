@@ -1,0 +1,120 @@
+.library-content {
+    padding: 12px;
+}
+
+.library-navigation {
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid black;
+}
+
+.library-navigation-header {
+    text-align: center;
+    font-weight: bold;
+
+    padding: 6px;
+    padding-bottom: 0;
+    margin-bottom: 6px;
+
+    border-bottom: 1px solid black;
+}
+
+.library-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: top;
+}
+
+.library-product {
+    border: 1px solid black;
+    border-bottom: 0;
+    padding: 6px;   
+}
+
+.library-product:last-child, .library-one-product {
+    border: 1px solid black;
+    padding: 6px;   
+}
+
+.library-product-header {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+.library-product-sub-header {
+    color: #111;
+    font-size: 12pt;
+}
+
+.library-product-normal {
+    font-size: 10pt;
+}
+
+.library-product-id {
+    color: #222;
+    font-style: italic;
+    font-size: 10pt;
+}
+
+.library-button {
+    border: 1px soild black;
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.library-button > * {
+    color: #fff;
+}
+
+.button-warning {
+    color: #fff;
+    background-color: rgb(220, 50, 50);
+    border-color: #fff;
+}
+
+.button-success {
+    color: #fff;
+    background-color: rgb(50, 220, 50);
+    border-color: #fff;
+}
+
+.button-primary {
+    color: #fff;
+    background-color: rgb(50, 50, 220);
+    border-color: #fff;
+}
+
+.button-right {
+    float: right;
+}
+
+.button-group {
+    margin: 12px 0;
+
+    width: 20%;
+    display: flex;
+    gap: 6px
+}
+
+.button-group > * {
+    flex-grow: 1;
+}
+ 
+.input-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 6px;
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+.input-group-header {
+    margin-bottom: 24px;
+}
+
+.library-create-input-label {
+    font-weight: bold;
+}

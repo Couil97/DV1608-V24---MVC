@@ -1,4 +1,5 @@
 @import "twenty_one.css";
+@import "library.css";
 
 header {
     height: 50px;
@@ -86,6 +87,10 @@ main > .content {
 main > .span-2 {
     display: block !important;
     width: 100%;
+}
+
+main > .table-of-contents {
+    grid-template-columns: calc(20% - 6px) calc(80% - 6px) !important;
 }
 
 main > .report {

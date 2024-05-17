@@ -13,6 +13,8 @@
             <span class="api-route"><a href="{{ path('api_card_draw') }}">Draw</a> - Tar fram det översta kortet</span>
             <span class="api-route"><a href="{{ path('api_card_draw_multiple', {num: 5}) }}">Draw:number</a> - Tar fram 5 kort</span>
             <span class="api-route"><a href="{{ path('api_game') }}">Game</a> - Visar nuvarande ställning i spelet 21</span>
+            <span class="api-route"><a href="{{ path('api_library_books') }}">Library/Books</a> - Visar alla böcker i biblioteket</span>
+            <span class="api-route"><a href="{{ path('api_library_isbn_books', {isbn: 0}) }}">Library/Book/{isbn}</a> - Visar alla böcker i biblioteket</span>
         </div>
     </div>
 {% endblock %}

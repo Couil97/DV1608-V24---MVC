@@ -89,6 +89,11 @@ class TwentyOneGameController extends AbstractController
         $cardHand = $session->get('game-hand');
         $bankHand = $session->get('game-bank_hand');
 
+        // Revalidates session (incase someone leaves the game open long enough for the session to expire)
+        if(!$cardDeck || !$cardHand || !$bankHand) {
+            $this->redirectToRoute('game_reset');
+        }
+
         $data = [
             "hand" => $cardHand->getAll(),
             "bank" => $bankHand->getAll(),

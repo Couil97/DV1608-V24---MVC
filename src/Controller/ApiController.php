@@ -7,6 +7,9 @@ use App\CardGame\CardDeck;
 use App\CardGame\CardGraphic;
 use App\CardGame\CardHand;
 
+use App\Entity\Book;
+use App\Repository\BookRepository;
+
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -184,6 +187,42 @@ class ApiController extends AbstractController
             'player_card_amount' => $playerHand->getNumberOfCards(),
             'bank_card_amount' => $bankHand->getNumberOfCards(),
             'game_status' => $status
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    #[Route("/api/library/books", name: "api_library_books")]
+    public function apiLibraryBooks(BookRepository $bookReposatory): Response
+    {
+        $books = $bookReposatory->findAll();
+
+        $data = [
+            'books' => $bookReposatory->toArray($books),
+            'type' => 'showAll'
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+
+        return $response;
+    }
+
+    #[Route("/api/library/book/{isbn}", name: "api_library_isbn_books")]
+    public function apiLibraryISBNBooks(BookRepository $bookReposatory, string $isbn): Response
+    {
+        $books = $bookReposatory->searchISBN($isbn);
+
+        $data = [
+            'books' => $books,
+            'type' => 'showISBN'
         ];
 
         $response = new JsonResponse($data);
