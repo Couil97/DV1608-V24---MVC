@@ -1,25 +1,19 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Library - View{% endblock %}
+{% block title %}Library - View All{% endblock %}
 
 {% block body %}
-    <h1 class="site-header">Library - View</h1>
+    <h1 class="site-header">Library - View All</h1>
     <hr>
     <div class="content table-of-contents">
         {{ include('library/navigation.twig') }}
         <div class="library-content">
             {{ include('flash.html.twig') }}
-
             {% for book in books %}
                 <div class="library-product">
-                    <div class="library-product-header"><a href="{{path('library_view_one', { id: book.getId() })}}">{{ book.getTitle() }}</a></div>
+                    <div class="library-product-header"><a href="{{path('library_view_one', { bookId: book.getId() })}}">{{ book.getTitle() }}</a></div>
                 </div>
             {% endfor %}
-            {% if (type == 'delete') %}
-                <div class="library-confirm-button">
-                    <a href="{{path('library_delete_post', {id} )}}">Radera produkt?</a>
-                </div>
-            {% endif %}
         </div>
     </div>
 {% endblock %}

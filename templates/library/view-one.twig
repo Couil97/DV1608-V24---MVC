@@ -17,7 +17,7 @@
                 <div class="library-product-id">ID: {{ book.getId() }}</div>
             {% if (type == 'delete') %}
                 <div class="library-confirm-button">
-                    <a href="{{path('library_delete_post', {id} )}}">Radera produkt?</a>
+                    <a href="{{path('library_delete_post', {bookId} )}}">Radera produkt?</a>
                 </div>
             {% endif %}
             </div>

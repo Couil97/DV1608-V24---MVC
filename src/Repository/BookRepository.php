@@ -53,12 +53,12 @@ class BookRepository extends ServiceEntityRepository
         $books = [];
 
         foreach($incBooks as $book) {
-            $books = [
+            array_push($books, [
                 'title' => $book->getTitle(),
                 'ISBN' => $book->getISBN(),
                 'author' => $book->getAuthor(),
                 'id' => $book->getId()
-            ];
+            ]);
         }
 
         return $books;

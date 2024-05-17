@@ -39,7 +39,7 @@ class LibraryController extends AbstractController
         return $this->render('library/view.twig', $data);
     }
 
-    #[Route('/library/view/{id}', name: 'library_view_one')]
+    #[Route('/library/view/{bookId}', name: 'library_view_one')]
     public function libraryViewOne(
         BookRepository $bookReposatory,
         int $bookId
@@ -89,7 +89,7 @@ class LibraryController extends AbstractController
             $data = [
                 'book' => $book,
                 'type' => $type,
-                'id' => $_POST['search']
+                'bookId' => $_POST['search']
             ];
 
             return $this->render('library/view-one.twig', $data);
@@ -214,7 +214,7 @@ class LibraryController extends AbstractController
         return $this->render('library/search.twig', $data);
     }
 
-    #[Route('/library/delete/post/{id}', name: 'library_delete_post')]
+    #[Route('/library/delete/post/{bookId}', name: 'library_delete_post')]
     public function libraryDeleteInProgress(
         ManagerRegistry $doctrine,
         int $bookId
