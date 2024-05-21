@@ -38,9 +38,17 @@ class TwentyOneGameController extends AbstractController
     #[Route("/game/start", name: "game_start")]
     public function gameStart(SessionInterface $session): Response
     {
+        // Resets if session is missing variables
+        $this->validateSession($session);
+
         $cardDeck = $session->get('game-deck');
         $cardHand = $session->get('game-hand');
         $bankHand = $session->get('game-bank_hand');
+
+        // Revalidates session (incase someone leaves the game open long enough for the session to expire)
+        if(!$cardDeck || !$cardHand || !$bankHand) {
+            $this->redirectToRoute('game_reset');
+        }
 
         $data = [
             "hand" => $cardHand->getAll(),
@@ -68,6 +76,11 @@ class TwentyOneGameController extends AbstractController
             $cardHand = $session->get('game-hand');
             $bankHand = $session->get('game-bank_hand');
 
+            // Revalidates session (incase someone leaves the game open long enough for the session to expire)
+            if(!$cardDeck || !$cardHand || !$bankHand) {
+                $this->redirectToRoute('game_reset');
+            }
+
             $data = [
                 "hand" => $cardHand->getAll(),
                 "bank" => $bankHand->getAll(),
@@ -88,11 +101,6 @@ class TwentyOneGameController extends AbstractController
         $cardDeck = $session->get('game-deck');
         $cardHand = $session->get('game-hand');
         $bankHand = $session->get('game-bank_hand');
-
-        // Revalidates session (incase someone leaves the game open long enough for the session to expire)
-        if(!$cardDeck || !$cardHand || !$bankHand) {
-            $this->redirectToRoute('game_reset');
-        }
 
         $data = [
             "hand" => $cardHand->getAll(),
