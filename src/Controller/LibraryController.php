@@ -158,6 +158,40 @@ class LibraryController extends AbstractController
         return $this->render('library/create.twig', $data);
     }
 
+    #[Route('/library/update/change', name: 'library_update_id')]
+    public function libraryUpdateId(
+        BookRepository $bookReposatory
+    ): Response {
+        if(!isset($_POST['id'])) {
+            $this->addFlash(
+                'warning',
+                'Direkt åtkomst till den sidan är förbjuden'
+            );
+    
+            return $this->redirectToRoute('library_update');
+        }
+
+        $headers = $bookReposatory->getHeaders();
+        $book = $bookReposatory->find($_POST['id']);
+
+        if(!$book) {
+            $this->addFlash(
+                'warning',
+                'Ingen bok har detta id'
+            );
+
+            return $this->redirectToRoute('library_update');
+        }
+
+        $data = [
+            'headers' => $headers,
+            'book' => $bookReposatory->toArray([$book])[0] ,
+            'type' => 'update'
+        ];
+
+        return $this->render('library/update.twig', $data);
+    }
+
     #[Route('/library/update/post', name: 'library_update_post')]
     public function libraryUpdateInProgress(
         ManagerRegistry $doctrine
@@ -201,7 +235,6 @@ class LibraryController extends AbstractController
 
         return $this->redirectToRoute('library_update');
     }
-
 
     #[Route('/library/delete', name: 'library_delete')]
     public function libraryDelete(): Response {

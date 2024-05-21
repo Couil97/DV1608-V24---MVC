@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library - {{ type }}{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Library - {{ type }}</h1>
+    <hr>
+    <div class="content table-of-contents">
+        {{ include('library/navigation.twig') }}
+        <div class="library-content">
+            {{ include('flash.html.twig') }}
+            <form action="{{path('library_update_post')}}" method="POST">
+                <input style="display: none;" required class="library-create-input" id="id" name="id" type="text" value="{{book['id']}}" placeholder="Id.."/>
+                {% for header in headers %}
+                    <div class="input-group">
+                        <label class="library-create-input-label" for="{{header.english}}">{{header.swedish}}</label>
+                        <input class="library-create-input" id="{{header.english}}" name="{{header.english}}" value="{{book[header.english]}}" type="text" placeholder="{{header.swedish}}.."/>
+                    </div>
+                {% endfor %}
+                <input class="library-button button-primary button-right" type="submit" value="Uppdatera"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

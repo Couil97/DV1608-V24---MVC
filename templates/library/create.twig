@@ -10,21 +10,23 @@
         <div class="library-content">
             {{ include('flash.html.twig') }}
             {% if (type == 'update') %}
-                <form action="{{path('library_update_post')}}" method="POST">
+                <form action="{{path('library_update_id')}}" method="POST">
                 <div class="input-group input-group-header">
                     <label class="library-create-input-label" for="id">Updatera bok med id:</label>
                     <input required class="library-create-input" id="id" name="id" type="text" placeholder="Id.."/>
                 </div>
+                <input class="library-button button-primary button-right" type="submit" value="Välj"/>
             {% else %}
+                {% for header in headers %}
+                    <div class="input-group">
+                        <label class="library-create-input-label" for="{{header.english}}">{{header.swedish}}</label>
+                        <input class="library-create-input" id="{{header.english}}" name="{{header.english}}" type="text" placeholder="{{header.swedish}}.."/>
+                    </div>
+                {% endfor %}
                 <form action="{{path('library_create_posting')}}" method="POST">
+                <input class="library-button button-primary button-right" type="submit" value="Skapa"/>
             {% endif %}
-            {% for header in headers %}
-                <div class="input-group">
-                    <label class="library-create-input-label" for="{{header.english}}">{{header.swedish}}</label>
-                    <input class="library-create-input" id="{{header.english}}" name="{{header.english}}" type="text" placeholder="{{header.swedish}}.."/>
-                </div>
-            {% endfor %}
-            <input class="library-button button-primary button-right" type="submit" value="Skapa"/>
+
             </form>
         </div>
     </div>
