@@ -2,16 +2,12 @@
 
 namespace App\Controller;
 
-use App\CardGame\Card;
 use App\CardGame\CardDeck;
-use App\CardGame\CardGraphic;
-use App\CardGame\CardHand;
+use App\Helpers\CardGameHelpers;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class CardGameController extends AbstractController
@@ -23,15 +19,9 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/deck", name: "card_deck")]
-    public function cardDeck(SessionInterface $session): Response
+    public function cardDeck(SessionInterface $session, CardGameHelpers $helper): Response
     {
-        if(!$session->isStarted()) {
-            $session->start();
-        }
-
-        if(!$session->has('deck')) {
-            $session->set('deck', new CardDeck());
-        }
+        $helper->validateSession($session);
 
         $deck = $session->get('deck');
 
@@ -44,15 +34,9 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/shuffle", name: "card_shuffle")]
-    public function cardShuffle(SessionInterface $session): Response
+    public function cardShuffle(SessionInterface $session, CardGameHelpers $helper): Response
     {
-        if(!$session->isStarted()) {
-            $session->start();
-        }
-
-        if(!$session->has('deck')) {
-            $session->set('deck', new CardDeck());
-        }
+        $helper->validateSession($session);
 
         $deck = $session->get('deck');
         $deck->shuffle();
@@ -66,15 +50,9 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/draw", name: "card_draw")]
-    public function cardDraw(SessionInterface $session): Response
+    public function cardDraw(SessionInterface $session, CardGameHelpers $helper): Response
     {
-        if(!$session->isStarted()) {
-            $session->start();
-        }
-
-        if(!$session->has('deck')) {
-            $session->set('deck', new CardDeck());
-        }
+        $helper->validateSession($session);
 
         $deck = $session->get('deck');
         $card = $deck->draw();
@@ -88,15 +66,9 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/draw/{num<\d+>}", name: "card_draw_multiple")]
-    public function cardDrawMultiple(SessionInterface $session, int $num): Response
+    public function cardDrawMultiple(SessionInterface $session, int $num, CardGameHelpers $helper): Response
     {
-        if(!$session->isStarted()) {
-            $session->start();
-        }
-
-        if(!$session->has('deck')) {
-            $session->set('deck', new CardDeck());
-        }
+        $helper->validateSession($session);
 
         $deck = $session->get('deck');
         $card = $deck->drawMultiple($num);

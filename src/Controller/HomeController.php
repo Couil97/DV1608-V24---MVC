@@ -50,7 +50,7 @@ class HomeController extends AbstractController
     #[Route("/session", name: "session")]
     public function session(SessionInterface $session): Response
     {
-        $result = ["Session empty"];
+        $result = [];
 
         foreach($session->all() as $key => $value) {
             array_push($result, "[" . $key . "]: " . $value);
@@ -74,18 +74,13 @@ class HomeController extends AbstractController
             'Your session has been cleared'
         );
 
-        $result = '';
-
         if(!$session->isStarted()) {
             $session->start();
         }
 
+        $result = '';
         foreach($session->all() as $key => $value) {
             $result .= "[" . $key . "]: " . $value . "\r\n";
-        }
-
-        if(!$result) {
-            $result = "Session empty";
         }
 
         $data = [
@@ -94,5 +89,11 @@ class HomeController extends AbstractController
         ];
 
         return $this->render('session.twig', $data);
+    }
+
+    #[Route("/metrics", name: "metrics")]
+    public function metrics(SessionInterface $session): Response
+    {
+        return $this->render('metrics.twig');
     }
 }

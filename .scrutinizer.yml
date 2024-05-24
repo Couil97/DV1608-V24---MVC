@@ -1,7 +1,7 @@
 imports:
     - php
 
-filter:
+filter:c
     excluded_paths: [vendor/*, test/*, migrations/*]
 
 build:

@@ -1,0 +1,44 @@
+.metrics {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.metrics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding-bottom: 24px;
+    border-bottom: 1px solid black;
+}
+
+.metrics-split {
+    display: flex;
+    justify-content: start; 
+
+    gap: 12px;
+    width: 100%;
+}
+
+.metrics-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    padding: 12px;
+    border: 1px solid black;
+}
+
+.metrics-image > img {
+    object-fit: contain;
+    height: 128px;
+}
+
+.metrics-image > .metrics-image-description {
+    font-size: 8pt;
+    font-weight: lighter;
+    font-style: italic;
+}

@@ -1,8 +1,7 @@
 <?php
 
 namespace App\CardGame;
-
-use App\Dice\CardHand;
+use App\CardGame\CardHand;
 
 class Card
 {

@@ -6,6 +6,8 @@ use App\Entity\Book;
 use App\Repository\BookRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+use App\Helpers\LibraryHelpers;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -56,7 +58,6 @@ class LibraryController extends AbstractController
 
     #[Route('/library/search', name: 'library_search')]
     public function librarySearch(): Response {
-
         $data = [
             'title' => 'Sök',
             'placeholder' => 'Namn, id, etc',
@@ -69,12 +70,20 @@ class LibraryController extends AbstractController
     #[Route('/library/view/type/{type}', name: 'library_view_type')]
     public function libraryView(
         BookRepository $bookReposatory,
+        LibraryHelpers $helpers,
         string $type
     ): Response {
-        if(isset($_POST['search'])) {
-            $book = $this->getSearch($bookReposatory, $_POST['search'], $type);
+        $data = $helpers->validateData($bookReposatory, $type);
 
-            if(!$book) {
+        switch($data['error']) {
+            case 0:
+                $this->addFlash(
+                    'warning',
+                    'Direkt åtkomst till den sidan är förbjuden'
+                );
+        
+                return $this->redirectToRoute('library_search');
+            case 1:
                 switch($type) {
                     case 'search':
                         return $this->redirectToRoute('library_search');
@@ -83,24 +92,9 @@ class LibraryController extends AbstractController
                     case 'delete':
                         return $this->redirectToRoute('library_delete');
                 }
-
-            }
-
-            $data = [
-                'book' => $book,
-                'type' => $type,
-                'bookId' => $_POST['search']
-            ];
-
-            return $this->render('library/view-one.twig', $data);
-        }
-
-        $this->addFlash(
-            'warning',
-            'Direkt åtkomst till den sidan är förbjuden'
-        );
-
-        return $this->redirectToRoute('library_search');
+            default:
+                return $this->render('library/view-one.twig', $data);
+        };
     }
 
     #[Route('/library/create', name: 'library_create')]
@@ -119,21 +113,12 @@ class LibraryController extends AbstractController
 
     #[Route('/library/create/posting', name: 'library_create_posting')]
     public function libraryCreateInProgress(
-        ManagerRegistry $doctrine
+        ManagerRegistry $doctrine,
+        LibraryHelpers $helpers
     ): Response {
-        $entityManager = $doctrine->getManager();
+        $error = $helpers->handleBook($doctrine);
 
-        $book = new Book();
-        $book->setTitle($_POST['title'] ?? '');
-        $book->setISBN($_POST['ISBN'] ?? '');
-        $book->setAuthor($_POST['author'] ?? '');
-
-        // tell Doctrine you want to (eventually) save the Product
-        // (no queries yet)
-        $entityManager->persist($book);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
+        if($error < 0) return $this->redirectToRoute('library_create');
 
         $this->addFlash(
             'notice',
@@ -160,31 +145,16 @@ class LibraryController extends AbstractController
 
     #[Route('/library/update/change', name: 'library_update_id')]
     public function libraryUpdateId(
-        BookRepository $bookReposatory
+        BookRepository $bookReposatory,
+        LibraryHelpers $helpers
     ): Response {
-        if(!isset($_POST['id'])) {
-            $this->addFlash(
-                'warning',
-                'Direkt åtkomst till den sidan är förbjuden'
-            );
-    
-            return $this->redirectToRoute('library_update');
-        }
-
-        $headers = $bookReposatory->getHeaders();
-        $book = $bookReposatory->find($_POST['id']);
-
-        if(!$book) {
-            $this->addFlash(
-                'warning',
-                'Ingen bok har detta id'
-            );
-
-            return $this->redirectToRoute('library_update');
-        }
+        if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
+        
+        $book = $helpers->validateBook($bookReposatory);
+        if(!$book) return $this->redirectToRoute('library_update');
 
         $data = [
-            'headers' => $headers,
+            'headers' => $bookReposatory->getHeaders(),
             'book' => $bookReposatory->toArray([$book])[0] ,
             'type' => 'update'
         ];
@@ -194,46 +164,22 @@ class LibraryController extends AbstractController
 
     #[Route('/library/update/post', name: 'library_update_post')]
     public function libraryUpdateInProgress(
-        ManagerRegistry $doctrine
+        ManagerRegistry $doctrine,
+        LibraryHelpers $helpers
     ): Response {
-        if(isset($_POST['id'])) {
-            $entityManager = $doctrine->getManager();
-            $book = $entityManager->getRepository(Book::class)->find($_POST['id']);
+        if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
 
-            if(!$book) {
-                $this->addFlash(
-                    'warning',
-                    'Ingen bok har detta id'
-                );
-
-                return $this->redirectToRoute('library_update');
-            }
-
-            $book->setTitle($_POST['title'] ?? '');
-            $book->setISBN($_POST['ISBN'] ?? '');
-            $book->setAuthor($_POST['author'] ?? '');
-
-            // tell Doctrine you want to (eventually) save the Product
-            // (no queries yet)
-            $entityManager->persist($book);
-
-            // actually executes the queries (i.e. the INSERT query)
-            $entityManager->flush();
-
-            $this->addFlash(
-                'notice',
-                'Updaterade boken "' . $_POST['title'] . '"'
-            );
-
-            return $this->redirectToRoute('library_view_all');
-        }
+        $book = $helpers->validateBook($entityManager->getRepository(Book::class)->find($_POST['id']));
+        if(!$book) return $this->redirectToRoute('library_update');
+        
+        $helpers->handleBook($doctrine, $book);
 
         $this->addFlash(
-            'warning',
-            'Direkt åtkomst till den sidan är förbjuden'
+            'notice',
+            'Updaterade boken "' . $_POST['title'] . '"'
         );
 
-        return $this->redirectToRoute('library_update');
+        return $this->redirectToRoute('library_view_all');
     }
 
     #[Route('/library/delete', name: 'library_delete')]
@@ -250,21 +196,10 @@ class LibraryController extends AbstractController
     #[Route('/library/delete/post/{bookId}', name: 'library_delete_post')]
     public function libraryDeleteInProgress(
         ManagerRegistry $doctrine,
+        LibraryHelpers $helpers,
         int $bookId
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Book::class)->find($bookId);
-
-        $title = $book->getTitle();
-
-        $entityManager->remove($book);
-        $entityManager->flush();
-
-        $this->addFlash(
-            'notice',
-            'Boken "' . $title . '" har blivit raderad'
-        );
-
+        $helpers->deleteOne($doctrine, $bookId);
         return $this->redirectToRoute('library_view_all');
     }
 
@@ -275,57 +210,10 @@ class LibraryController extends AbstractController
 
     #[Route('/library/delete/all', name: 'library_delete_all')]
     public function libraryDeleteAllInProgress(
-        ManagerRegistry $doctrine
+        ManagerRegistry $doctrine,
+        LibraryHelpers $helpers
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $books = $entityManager->getRepository(Book::class)->findAll();
-
-        foreach($books as $book) {
-            $entityManager->remove($book);
-        }
-
-        $entityManager->flush();
-
-        $this->addFlash(
-            'notice',
-            'Alla böcker har raderas'
-        );
-
+        $helpers->deleteAll($doctrine);
         return $this->redirectToRoute('library');
-    }
-
-    private function getSearch($bookReposatory, $search, $type)
-    {
-        if($type == 'search') {
-            $book = $bookReposatory->searchDb($search);
-
-            if(!$book) {
-
-                $this->addFlash(
-                    'warning',
-                    'Ingen bok matchade denna sökning'
-                );
-
-                return null;
-            }
-
-            $result = $book[0]['id'];
-        } else {
-            $result = $search;
-        }
-
-        $book = $bookReposatory->find($result);
-
-        if(!$book) {
-
-            $this->addFlash(
-                'warning',
-                'Ingen bok matchade detta id'
-            );
-
-            return null;
-        }
-
-        return $book;
     }
 }

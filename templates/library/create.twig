@@ -17,13 +17,13 @@
                 </div>
                 <input class="library-button button-primary button-right" type="submit" value="Välj"/>
             {% else %}
+                <form action="{{path('library_create_posting')}}" method="POST">
                 {% for header in headers %}
                     <div class="input-group">
                         <label class="library-create-input-label" for="{{header.english}}">{{header.swedish}}</label>
                         <input class="library-create-input" id="{{header.english}}" name="{{header.english}}" type="text" placeholder="{{header.swedish}}.."/>
                     </div>
                 {% endfor %}
-                <form action="{{path('library_create_posting')}}" method="POST">
                 <input class="library-button button-primary button-right" type="submit" value="Skapa"/>
             {% endif %}
 

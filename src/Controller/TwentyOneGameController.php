@@ -98,7 +98,6 @@ class TwentyOneGameController extends AbstractController
         $this->drawCard($session);
 
         // Sets variables
-        $cardDeck = $session->get('game-deck');
         $cardHand = $session->get('game-hand');
         $bankHand = $session->get('game-bank_hand');
 

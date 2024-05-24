@@ -1,0 +1,208 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+    <h1 class="site-header">Metrics</h1>
+    <hr>
+    <div class="content span-2">
+        <div class="metrics">
+            <div class="metrics-container">
+                <h2>Introduktion</h2>
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Codestyle</h3>
+                    <div class="metrics-subitem-text">
+                        "Codestyle" är en eller flera regler som bestämmer över hur ens kod borde se ut. 
+                        Detta är gjort för att man lättare ska ha hållbar kod som är både lätt och läsa samt lätt att arbeta med.
+                        Bar codestyle är speciellt viktigt i ett projekt med flera medarbetare.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Coverage</h3>
+                    <div class="metrics-subitem-text">
+                        "Coverage" är mängden kod som ens test-fall täcker. 
+                        Ju högre coverage man har dessto mer av koden kan man vara säker fungerar på rätt sätt.
+                        Som ett exempel har detta projekt endast 24% coverage, alltså relativt dålig täckning av koden.
+                        Dock så använder detta projekt mycket kod från andra källor och är en av anledningarna till att kodtäckningen är låg.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Complexity</h3>
+                    <div class="metrics-subitem-text">
+                        Ett program kan ha olika nivåer av komplexitet. 
+                        Ett sätt att mäta detta är via någonting kallat "Cyclomatic complexity".
+                        Detta ger ett program eller ett kodstycke ett betyg som beskriver dens komplexitet.
+                        När ett program har hög komplexitet kan det betyda att den har större chans att ha buggar dessutom kan det även betyda att koden är mindre hållbar.
+                        Detta projekt har ett par klasser med hög komplexitet, kontrollerna samt card-klasserna. 
+                        Dessa klasser har alltså högre chans att ha buggar samt är mindre hållbara.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Cohesion</h3>
+                    <div class="metrics-subitem-text">
+                        "Cohesion" beskriver hur mycket datan samt metoderna i en klass hör ihop.
+                        Till exempel, allting relaterat till ett bas-kort ligger i min Card-klass medans allting relaterat till kortleken ligger i min Deck-klass, osv.
+                        Ju högre Cohesion ett program har dessto bättre sammanhållning och återanvändning har programmet.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Coupling</h3>
+                    <div class="metrics-subitem-text">
+                        "Coupling" beskriver hur beroende olika moduler i ett program är av varanndra.
+                        Ofta pratar man om coupling tillsammans med cohesion eftersom att ju lägre coupling man har dessuto högre cohesion brukar man ha.
+                        Därför är det bra att ha moduler som är oberoende av varanndra och kan göra sitt jobb utan att behöva använda sig av andra moduler.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">CRAP</h3>
+                    <div class="metrics-subitem-text">
+                        "CRAP" är ett poäng system som beskriver hur stor chans det är för en kod att uppleva svårigheter när någonting i den koden ändras.
+                        CRAP är en kombination tillvissdel en kombination av complexity och coverage.
+                        Därför betyder det att om ett program har hög komplexitet och låg kodtäckningen kommer den troligen också ha ett högt CRAP värde.
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-container">
+                <h2>Phpmetrics</h2>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Contollers (Dålig maintainability)</h3>
+                    <div class="metrics-subitem-text metrics-split">
+                        <p>
+                            Nästintill alla av mina kontrollers har väldigt låg maintainability.
+                            Detta betyder att det kommer vara svårt att göra ändringar och underhålla dessa klasser.
+                            Ett sätt jag kan färbättra detta på är att strukturera om dem och göra mer kontroller klasser med färre anrop i vardera.
+                            Detta skulle minska min komplexitet och öka maintainability indexen.
+                            Jag skulle även kunna lägga vissa funktioner i en annan klass för att minska den cyclomatiska komplexiteten.
+                        </p>
+                        
+                        <div class="metrics-image">
+                            <img src="{{ asset('img/PHPmetrics maintainabillity.png') }}" alt="PHPmetrics maintainabillity chart" />
+                            <div class="metrics-image-description">
+                                Bilden visar maintainability index och complexity i de olika klasserna i mitt program. Ju större och rödare dessuto värre. Nästan alla av dessa var en kontroller.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">ApiController (God object)</h3>
+                    <div class="metrics-subitem-text">
+                        Min api-kontroller anser Phpmetrics som ett "God Object".
+                        Detta är en klass med många publika metoder och låg cohesion.
+                        För att fixa detta skulle jag kunna dela upp denna klassen till flera olika klasser (t.ex. en api klass per sida, etc.).
+                        De andra kontrollerna är redan uppdelade i flera olika delar därför bör jag även göra detta med min api-kontroller.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Hög komplexitet</h3>
+                    <div class="metrics-subitem-text">
+                        Många av mina klasser hade relativt hög komplexitet.
+                        Detta kan leda till mer buggar och mindre maintainability.
+                        För att minska detta kan jag förenkla kod genom att t.ex. minska mängden måsvingar jag använder samt flytta vissa funktioner till till exempel en hjälp-klass.
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-container">
+                <h2>Scrutinizer</h2>
+                <div class="metrics-badges">
+                    <img src="https://scrutinizer-ci.com/g/Couil97/DV1608-V24---MVC/badges/quality-score.png?b=main" alt="Scrutinizer quality badge">
+                    <img src="https://scrutinizer-ci.com/g/Couil97/DV1608-V24---MVC/badges/coverage.png?b=main" alt="Scrutinizer coverage badge">
+                    <img src="https://scrutinizer-ci.com/g/Couil97/DV1608-V24---MVC/badges/build.png?b=main" alt="Scrutinizer build badge">
+                </div>
+
+                Det stod inte alls mycket när det gäller Scrutinizer. Jag hade ungerfär 3 fel som var rätt så små.
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Fel namespace</h3>
+                    <div class="metrics-subitem-text">
+                        Jag hade två "namespace" fel i min kort class där den försökte inkludera filer från src/Dice/.. även fast jag inte hade några sådana filer.
+                        Eftersom att jag inte använde några extra filer i just den klassen valde jag att ta bort kodraden helt och hållet.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Coverage</h3>
+                    <div class="metrics-subitem-text">
+                        Min kodtäckning är väldigt låg vilket kan betyda att jag har flera buggar som jag inte har sett än för att mina tester inte når alla delar av koden.
+                        Därför kan det vara bra om jag ökar min täckining för att försäkra mig om att en större del av min kod fungerar på rätt sätt.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Oanvänd kod/variabler</h3>
+                    <div class="metrics-subitem-text">
+                        I min kod hade jag ett par ställen där jag hade kod eller variabler som jag inte använde.
+                        Detta påverkar inte prestandan av koden men kan påverka hur lätt koden är att arbeta med.
+                        Om en kod har massor med stycken som inte gör någonting kan det vara svårt att urskilja dessa mot den koden man bör arbeta med.
+                        Detta är ju ganska lätt att fixa eftersom att man endast behöver ta bort den oanvända koden.
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-container">
+                <h2>Förbättringar</h2>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Splittra upp ApiController till flera klasser</h3>
+                    <div class="metrics-subitem-text">
+                        ApiController ät just nu en stor fil med massor av olika api routes.
+                        Detta gör att den har väldigt många dependencies som minskar hållbarheten av koden.
+                        För att fixa detta kommer jag dela upp ApiController till något liknande det de andra kontrollerna gör.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Fixa scrutinizer felen</h3>
+                    <div class="metrics-subitem-text">
+                        Jag vill fixa de 4 felen jag fick i scrutinizer så att jag kan nå 10 poäng.
+                        Dessa var relativt irrelevanta fel i jämförelse med de felen jag fick i PHPmetrics.
+                        Dock tycker jag att det är viktigt att rätta till dessa fel för att få bättre kod samt även högre kod betyg.
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Minska komplexiteten i kontroller klasserna</h3>
+                    <div class="metrics-subitem-text">
+                        Alla kontroller klasserna har relativt hög komplexitet.
+                        Detta är för att de har relativt många metoder i sig och pratar väldigt mycket med andra klasser.
+                        Jag kommer att fixa detta genom att splittra upp klasserna i mindre delar samt genom att metoder som inte har med router att göra till en separat klass.
+                    </div>
+                </div>
+            </div>
+
+            <div class="metrics-container">
+                <h2>Diskussion</h2>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?</h3>
+                    <div class="metrics-subitem-text">
+
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Finns det fördelar och kanske nackdelar?</h3>
+                    <div class="metrics-subitem-text">
+
+                    </div>
+                </div>
+
+                <div class="metrics-subitem">
+                    <h3 class="metrics-subitem-title">Ser du andra möjligheter att jobba mot “clean code”?</h3>
+                    <div class="metrics-subitem-text">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
