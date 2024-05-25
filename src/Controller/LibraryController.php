@@ -57,7 +57,8 @@ class LibraryController extends AbstractController
     }
 
     #[Route('/library/search', name: 'library_search')]
-    public function librarySearch(): Response {
+    public function librarySearch(): Response
+    {
         $data = [
             'title' => 'Sök',
             'placeholder' => 'Namn, id, etc',
@@ -81,7 +82,7 @@ class LibraryController extends AbstractController
                     'warning',
                     'Direkt åtkomst till den sidan är förbjuden'
                 );
-        
+
                 return $this->redirectToRoute('library_search');
             case 1:
                 switch($type) {
@@ -94,6 +95,7 @@ class LibraryController extends AbstractController
                     default:
                         return $this->redirectToRoute('library_view_all');
                 }
+                // no break
             default:
                 return $this->render('library/view-one.twig', $data);
         };
@@ -120,7 +122,9 @@ class LibraryController extends AbstractController
     ): Response {
         $error = $helpers->handleBook($doctrine);
 
-        if($error < 0) return $this->redirectToRoute('library_create');
+        if($error < 0) {
+            return $this->redirectToRoute('library_create');
+        }
 
         $this->addFlash(
             'notice',
@@ -150,10 +154,14 @@ class LibraryController extends AbstractController
         BookRepository $bookReposatory,
         LibraryHelpers $helpers
     ): Response {
-        if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
+        if(!$helpers->validateId()) {
+            return $this->redirectToRoute('library_update');
+        }
 
         $book = $bookReposatory->find($_POST['id']);
-        if($book == null) return $this->redirectToRoute('library_update');
+        if($book == null) {
+            return $this->redirectToRoute('library_update');
+        }
 
         $data = [
             'headers' => $bookReposatory->getHeaders(),
@@ -169,11 +177,15 @@ class LibraryController extends AbstractController
         ManagerRegistry $doctrine,
         LibraryHelpers $helpers
     ): Response {
-        if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
+        if(!$helpers->validateId()) {
+            return $this->redirectToRoute('library_update');
+        }
 
         $book = $helpers->validateBook($doctrine->getManager()->getRepository(Book::class)->find($_POST['id']));
-        if($book == null) return $this->redirectToRoute('library_update');
-        
+        if($book == null) {
+            return $this->redirectToRoute('library_update');
+        }
+
         if($helpers->handleBook($doctrine, $book) == 1) {
             return $this->redirectToRoute('library_update');
         }
@@ -187,7 +199,8 @@ class LibraryController extends AbstractController
     }
 
     #[Route('/library/delete', name: 'library_delete')]
-    public function libraryDelete(): Response {
+    public function libraryDelete(): Response
+    {
         $data = [
             'title' => 'Radera',
             'placeholder' => 'Radera id',
@@ -208,7 +221,8 @@ class LibraryController extends AbstractController
     }
 
     #[Route('/library/delete/all/confirm', name: 'library_delete_all_confirm')]
-    public function libraryDeleteAllConfirm(): Response {
+    public function libraryDeleteAllConfirm(): Response
+    {
         return $this->render('library/delete-confirm.twig');
     }
 

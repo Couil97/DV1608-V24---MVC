@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Helpers;
 
 use App\Entity\Book;
@@ -9,13 +10,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class LibraryHelpers extends AbstractController
 {
-    public function validateData(BookRepository $bookReposatory, string $type) : array {
+    public function validateData(BookRepository $bookReposatory, string $type): array
+    {
         $data = ['error' => 0];
-        
+
         if(isset($_POST['search'])) {
             $book = $this->getSearch($bookReposatory, $_POST['search'], $type);
-            if(!$book) return ['error' => 1];
-            
+            if(!$book) {
+                return ['error' => 1];
+            }
+
             $data = [
                 'book' => $book,
                 'type' => $type,
@@ -27,7 +31,8 @@ class LibraryHelpers extends AbstractController
         return $data;
     }
 
-    public function handleBook(ManagerRegistry $doctrine, Book $book = new Book()) : int {
+    public function handleBook(ManagerRegistry $doctrine, Book $book = new Book()): int
+    {
         $entityManager = $doctrine->getManager();
 
         if($_POST['title'] == "") {
@@ -38,7 +43,7 @@ class LibraryHelpers extends AbstractController
 
             return -1;
         }
-        
+
         $book->setTitle($_POST['title'] ?? '');
         $book->setISBN($_POST['ISBN'] ?? '');
         $book->setAuthor($_POST['author'] ?? '');
@@ -53,7 +58,8 @@ class LibraryHelpers extends AbstractController
         return 0;
     }
 
-    public function validateId() {
+    public function validateId()
+    {
         $this->addFlash(
             'warning',
             'Direkt åtkomst till den sidan är förbjuden'
@@ -62,7 +68,8 @@ class LibraryHelpers extends AbstractController
         return isset($_POST['id']);
     }
 
-    public function validateBook(Book $book) {
+    public function validateBook(Book $book)
+    {
         if($book == null) {
             $this->addFlash(
                 'warning',
@@ -108,7 +115,8 @@ class LibraryHelpers extends AbstractController
         return $book;
     }
 
-    public function deleteOne(ManagerRegistry $doctrine, int $bookId) {
+    public function deleteOne(ManagerRegistry $doctrine, int $bookId)
+    {
         $entityManager = $doctrine->getManager();
         $book = $entityManager->getRepository(Book::class)->find($bookId);
 
@@ -124,7 +132,8 @@ class LibraryHelpers extends AbstractController
 
     }
 
-    public function deleteAll(ManagerRegistry $doctrine) {
+    public function deleteAll(ManagerRegistry $doctrine)
+    {
         $entityManager = $doctrine->getManager();
         $books = $entityManager->getRepository(Book::class)->findAll();
 

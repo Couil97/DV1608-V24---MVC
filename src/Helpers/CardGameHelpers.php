@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Helpers;
 
 use App\CardGame\CardDeck;
@@ -6,7 +7,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class CardGameHelpers
 {
-    public static function validateSession(SessionInterface $session) {
+    public static function validateSession(SessionInterface $session)
+    {
         if(!$session->isStarted()) {
             $session->start();
         }

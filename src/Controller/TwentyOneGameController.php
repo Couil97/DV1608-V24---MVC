@@ -21,7 +21,9 @@ class TwentyOneGameController extends AbstractController
     public function gameStart(SessionInterface $session, TwentyOneGameHelpers $helpers): Response
     {
         // Resets if session is missing variables
-        if(!$helpers->validateSession($session)) return $this->redirectToRoute('game_reset');
+        if(!$helpers->validateSession($session)) {
+            return $this->redirectToRoute('game_reset');
+        }
         $data = $helpers->getData($session);
 
         return $this->render('game/gameboard.twig', $data);
@@ -31,7 +33,9 @@ class TwentyOneGameController extends AbstractController
     public function gameDraw(SessionInterface $session, TwentyOneGameHelpers $helpers): Response
     {
         // Resets if session is missing variables
-        if(!$helpers->validateSession($session)) return $this->redirectToRoute('game_reset');
+        if(!$helpers->validateSession($session)) {
+            return $this->redirectToRoute('game_reset');
+        }
 
         // Checks if user has already won/lost
         if($session->get('game-status') != "Running") {

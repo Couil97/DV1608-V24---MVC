@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Helpers;
 
 use App\CardGame\CardDeck;
@@ -8,7 +9,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class TwentyOneGameHelpers
 {
-    public function validateSession(SessionInterface $session) : bool
+    public function validateSession(SessionInterface $session): bool
     {
         if($session == null) {
             return false;
@@ -26,7 +27,8 @@ class TwentyOneGameHelpers
         return true;
     }
 
-    public function resetHand(SessionInterface $session) {
+    public function resetHand(SessionInterface $session)
+    {
         if(!$session->isStarted()) {
             $session->start();
         }
@@ -77,7 +79,8 @@ class TwentyOneGameHelpers
         $session->set('game-bank_hand', $bankHand);
     }
 
-    public function getData(SessionInterface $session) : array {
+    public function getData(SessionInterface $session): array
+    {
         // Sets variables
         $cardHand = $session->get('game-hand');
         $bankHand = $session->get('game-bank_hand');
