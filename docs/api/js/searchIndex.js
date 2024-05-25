@@ -271,55 +271,70 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-CardGame-CardHand.html#property_hand"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController",
+            "fqsen": "\\App\\Controller\\API\\ApiController",
             "name": "ApiController",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html"
+            "url": "classes/App-Controller-API-ApiController.html"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003Aapi\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiController\u003A\u003Aapi\u0028\u0029",
             "name": "api",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_api"
+            "url": "classes/App-Controller-API-ApiController.html#method_api"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003Aquote\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiController\u003A\u003Aquote\u0028\u0029",
             "name": "quote",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_quote"
+            "url": "classes/App-Controller-API-ApiController.html#method_quote"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003Adeck\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiDeckController",
+            "name": "ApiDeckController",
+            "summary": "",
+            "url": "classes/App-Controller-API-ApiDeckController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\API\\ApiDeckController\u003A\u003Adeck\u0028\u0029",
             "name": "deck",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_deck"
+            "url": "classes/App-Controller-API-ApiDeckController.html#method_deck"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AdeckShuffle\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiDeckController\u003A\u003AdeckShuffle\u0028\u0029",
             "name": "deckShuffle",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_deckShuffle"
+            "url": "classes/App-Controller-API-ApiDeckController.html#method_deckShuffle"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AdeckDraw\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiDeckController\u003A\u003AdeckDraw\u0028\u0029",
             "name": "deckDraw",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_deckDraw"
+            "url": "classes/App-Controller-API-ApiDeckController.html#method_deckDraw"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AdeckDrawMultiple\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiDeckController\u003A\u003AdeckDrawMultiple\u0028\u0029",
             "name": "deckDrawMultiple",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_deckDrawMultiple"
+            "url": "classes/App-Controller-API-ApiDeckController.html#method_deckDrawMultiple"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003Agame\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiGameController",
+            "name": "ApiGameController",
+            "summary": "",
+            "url": "classes/App-Controller-API-ApiGameController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\API\\ApiGameController\u003A\u003Agame\u0028\u0029",
             "name": "game",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_game"
+            "url": "classes/App-Controller-API-ApiGameController.html#method_game"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiLibraryBooks\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiLibraryController",
+            "name": "ApiLibraryController",
+            "summary": "",
+            "url": "classes/App-Controller-API-ApiLibraryController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\API\\ApiLibraryController\u003A\u003AapiLibraryBooks\u0028\u0029",
             "name": "apiLibraryBooks",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiLibraryBooks"
+            "url": "classes/App-Controller-API-ApiLibraryController.html#method_apiLibraryBooks"
         },                {
-            "fqsen": "\\App\\Controller\\ApiController\u003A\u003AapiLibraryISBNBooks\u0028\u0029",
+            "fqsen": "\\App\\Controller\\API\\ApiLibraryController\u003A\u003AapiLibraryISBNBooks\u0028\u0029",
             "name": "apiLibraryISBNBooks",
             "summary": "",
-            "url": "classes/App-Controller-ApiController.html#method_apiLibraryISBNBooks"
+            "url": "classes/App-Controller-API-ApiLibraryController.html#method_apiLibraryISBNBooks"
         },                {
             "fqsen": "\\App\\Controller\\CardGameController",
             "name": "CardGameController",
@@ -386,6 +401,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-HomeController.html#method_deleteSession"
         },                {
+            "fqsen": "\\App\\Controller\\HomeController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-HomeController.html#method_metrics"
+        },                {
             "fqsen": "\\App\\Controller\\LibraryController",
             "name": "LibraryController",
             "summary": "",
@@ -431,6 +451,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_libraryUpdate"
         },                {
+            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AlibraryUpdateId\u0028\u0029",
+            "name": "libraryUpdateId",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryController.html#method_libraryUpdateId"
+        },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AlibraryUpdateInProgress\u0028\u0029",
             "name": "libraryUpdateInProgress",
             "summary": "",
@@ -455,11 +480,6 @@ Search.appendIndex(
             "name": "libraryDeleteAllInProgress",
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_libraryDeleteAllInProgress"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AgetSearch\u0028\u0029",
-            "name": "getSearch",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_getSearch"
         },                {
             "fqsen": "\\App\\Controller\\TwentyOneGameController",
             "name": "TwentyOneGameController",
@@ -626,6 +646,56 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Book.html#property_author"
         },                {
+            "fqsen": "\\App\\Helpers\\CardGameHelpers",
+            "name": "CardGameHelpers",
+            "summary": "",
+            "url": "classes/App-Helpers-CardGameHelpers.html"
+        },                {
+            "fqsen": "\\App\\Helpers\\CardGameHelpers\u003A\u003AvalidateSession\u0028\u0029",
+            "name": "validateSession",
+            "summary": "",
+            "url": "classes/App-Helpers-CardGameHelpers.html#method_validateSession"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers",
+            "name": "LibraryHelpers",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AvalidateData\u0028\u0029",
+            "name": "validateData",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_validateData"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AhandleBook\u0028\u0029",
+            "name": "handleBook",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_handleBook"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AvalidateId\u0028\u0029",
+            "name": "validateId",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_validateId"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AvalidateBook\u0028\u0029",
+            "name": "validateBook",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_validateBook"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AgetSearch\u0028\u0029",
+            "name": "getSearch",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_getSearch"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AdeleteOne\u0028\u0029",
+            "name": "deleteOne",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_deleteOne"
+        },                {
+            "fqsen": "\\App\\Helpers\\LibraryHelpers\u003A\u003AdeleteAll\u0028\u0029",
+            "name": "deleteAll",
+            "summary": "",
+            "url": "classes/App-Helpers-LibraryHelpers.html#method_deleteAll"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",
@@ -676,6 +746,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/app-cardgame.html"
         },                {
+            "fqsen": "\\App\\Controller\\API",
+            "name": "API",
+            "summary": "",
+            "url": "namespaces/app-controller-api.html"
+        },                {
             "fqsen": "\\App\\Controller",
             "name": "Controller",
             "summary": "",
@@ -690,6 +765,11 @@ Search.appendIndex(
             "name": "Entity",
             "summary": "",
             "url": "namespaces/app-entity.html"
+        },                {
+            "fqsen": "\\App\\Helpers",
+            "name": "Helpers",
+            "summary": "",
+            "url": "namespaces/app-helpers.html"
         },                {
             "fqsen": "\\App",
             "name": "App",
