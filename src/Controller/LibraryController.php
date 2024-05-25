@@ -169,7 +169,7 @@ class LibraryController extends AbstractController
     ): Response {
         if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
 
-        $book = $helpers->validateBook($entityManager->getRepository(Book::class)->find($_POST['id']));
+        $book = $helpers->validateBook($doctrine->getManager()->getRepository(Book::class)->find($_POST['id']));
         if(!$book) return $this->redirectToRoute('library_update');
         
         $helpers->handleBook($doctrine, $book);

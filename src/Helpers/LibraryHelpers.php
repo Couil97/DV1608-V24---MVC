@@ -63,7 +63,7 @@ class LibraryHelpers extends AbstractController
     }
 
     public function validateBook(Book $book) {
-        if(!$book) {
+        if($book == null) {
             $this->addFlash(
                 'warning',
                 'Ingen bok har detta id'

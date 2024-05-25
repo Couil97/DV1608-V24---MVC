@@ -92,7 +92,7 @@ class HomeController extends AbstractController
     }
 
     #[Route("/metrics", name: "metrics")]
-    public function metrics(SessionInterface $session): Response
+    public function metrics(): Response
     {
         return $this->render('metrics.twig');
     }
