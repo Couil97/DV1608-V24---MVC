@@ -91,6 +91,8 @@ class LibraryController extends AbstractController
                         return $this->redirectToRoute('library_update');
                     case 'delete':
                         return $this->redirectToRoute('library_delete');
+                    default:
+                        return $this->redirectToRoute('library_view_all');
                 }
             default:
                 return $this->render('library/view-one.twig', $data);
@@ -150,7 +152,7 @@ class LibraryController extends AbstractController
     ): Response {
         if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
         
-        $book = $helpers->validateBook($bookReposatory);
+        $book = $helpers->validateBook($bookReposatory->find($bookId));
         if(!$book) return $this->redirectToRoute('library_update');
 
         $data = [
@@ -172,7 +174,9 @@ class LibraryController extends AbstractController
         $book = $helpers->validateBook($doctrine->getManager()->getRepository(Book::class)->find($_POST['id']));
         if(!$book) return $this->redirectToRoute('library_update');
         
-        $helpers->handleBook($doctrine, $book);
+        if($helpers->handleBook($doctrine, $book) == 1) {
+            return $this->redirectToRoute('library_update');
+        }
 
         $this->addFlash(
             'notice',
