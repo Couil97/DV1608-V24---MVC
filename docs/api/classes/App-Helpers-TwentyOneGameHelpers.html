@@ -112,16 +112,13 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/app.html">App</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-controller.html">Controller</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-helpers.html">Helpers</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    TwentyOneGameController
+    TwentyOneGameHelpers
 
-        <span class="phpdocumentor-element__extends">
-        extends <abbr title="\Symfony\Bundle\FrameworkBundle\Controller\AbstractController">AbstractController</abbr>
-    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -139,9 +136,9 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Helpers/TwentyOneGameHelpers.php"><a href="files/src-helpers-twentyonegamehelpers.html"><abbr title="src/Helpers/TwentyOneGameHelpers.php">TwentyOneGameHelpers.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 
     </aside>
 
@@ -153,7 +150,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/App-Controller-TwentyOneGameController.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Helpers-TwentyOneGameHelpers.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -168,44 +165,32 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/App-Controller-TwentyOneGameController.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/App-Helpers-TwentyOneGameHelpers.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Controller-TwentyOneGameController.html#method_game">game()</a>
+    <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_drawCard">drawCard()</a>
     <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Controller-TwentyOneGameController.html#method_gameChangePlayer">gameChangePlayer()</a>
+    <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_getData">getData()</a>
     <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Controller-TwentyOneGameController.html#method_gameDoc">gameDoc()</a>
+    <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_resetHand">resetHand()</a>
     <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+                                &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Controller-TwentyOneGameController.html#method_gameDraw">gameDraw()</a>
+    <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_validateSession">validateSession()</a>
     <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Controller-TwentyOneGameController.html#method_gameReset">gameReset()</a>
-    <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Controller-TwentyOneGameController.html#method_gameStart">gameStart()</a>
-    <span>
-                                &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
+                                &nbsp;: bool    </span>
 </dt>
 
     </dl>
@@ -220,7 +205,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Controller-TwentyOneGameController.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Helpers-TwentyOneGameHelpers.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -229,34 +214,40 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_game">
-        game()
-        <a href="classes/App-Controller-TwentyOneGameController.html#method_game" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_drawCard">
+        drawCard()
+        <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_drawCard" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Helpers/TwentyOneGameHelpers.php"><a href="files/src-helpers-twentyonegamehelpers.html"><abbr title="src/Helpers/TwentyOneGameHelpers.php">TwentyOneGameHelpers.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">game</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">drawCard</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$session</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
     
 
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
-            </section>
-
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -264,22 +255,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_gameChangePlayer">
-        gameChangePlayer()
-        <a href="classes/App-Controller-TwentyOneGameController.html#method_gameChangePlayer" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getData">
+        getData()
+        <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_getData" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Helpers/TwentyOneGameHelpers.php"><a href="files/src-helpers-twentyonegamehelpers.html"><abbr title="src/Helpers/TwentyOneGameHelpers.php">TwentyOneGameHelpers.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">gameChangePlayer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">getData</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -299,7 +290,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             </section>
 
 </article>
@@ -309,57 +300,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_gameDoc">
-        gameDoc()
-        <a href="classes/App-Controller-TwentyOneGameController.html#method_gameDoc" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_resetHand">
+        resetHand()
+        <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_resetHand" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Helpers/TwentyOneGameHelpers.php"><a href="files/src-helpers-twentyonegamehelpers.html"><abbr title="src/Helpers/TwentyOneGameHelpers.php">TwentyOneGameHelpers.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">gameDoc</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_gameDraw">
-        gameDraw()
-        <a href="classes/App-Controller-TwentyOneGameController.html#method_gameDraw" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">30</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">gameDraw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Helpers-TwentyOneGameHelpers.html"><abbr title="\App\Helpers\TwentyOneGameHelpers">TwentyOneGameHelpers</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$helpers</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">resetHand</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -373,22 +329,11 @@
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$helpers</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Helpers-TwentyOneGameHelpers.html"><abbr title="\App\Helpers\TwentyOneGameHelpers">TwentyOneGameHelpers</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
             </dl>
 
     
 
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
-            </section>
-
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -396,22 +341,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_gameReset">
-        gameReset()
-        <a href="classes/App-Controller-TwentyOneGameController.html#method_gameReset" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_validateSession">
+        validateSession()
+        <a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_validateSession" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Helpers/TwentyOneGameHelpers.php"><a href="files/src-helpers-twentyonegamehelpers.html"><abbr title="src/Helpers/TwentyOneGameHelpers.php">TwentyOneGameHelpers.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">gameReset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Helpers-TwentyOneGameHelpers.html"><abbr title="\App\Helpers\TwentyOneGameHelpers">TwentyOneGameHelpers</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$helpers</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">validateSession</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -425,72 +370,13 @@
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$helpers</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Helpers-TwentyOneGameHelpers.html"><abbr title="\App\Helpers\TwentyOneGameHelpers">TwentyOneGameHelpers</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
             </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_gameStart">
-        gameStart()
-        <a href="classes/App-Controller-TwentyOneGameController.html#method_gameStart" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/TwentyOneGameController.php"><a href="files/src-controller-twentyonegamecontroller.html"><abbr title="src/Controller/TwentyOneGameController.php">TwentyOneGameController.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">20</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">gameStart</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$session</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Helpers-TwentyOneGameHelpers.html"><abbr title="\App\Helpers\TwentyOneGameHelpers">TwentyOneGameHelpers</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$helpers</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$session</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Session\SessionInterface">SessionInterface</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$helpers</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Helpers-TwentyOneGameHelpers.html"><abbr title="\App\Helpers\TwentyOneGameHelpers">TwentyOneGameHelpers</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
+        <span class="phpdocumentor-signature__response_type">bool</span>
             </section>
 
 </article>
@@ -500,7 +386,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Controller/TwentyOneGameController.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Helpers/TwentyOneGameHelpers.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -599,7 +485,7 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/App-Controller-TwentyOneGameController.html#toc-methods">Methods</a></li>
+                                                                                <li><a href="classes/App-Helpers-TwentyOneGameHelpers.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
@@ -607,12 +493,10 @@
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/App-Controller-TwentyOneGameController.html#method_game">game()</a></li>
-                                            <li><a href="classes/App-Controller-TwentyOneGameController.html#method_gameChangePlayer">gameChangePlayer()</a></li>
-                                            <li><a href="classes/App-Controller-TwentyOneGameController.html#method_gameDoc">gameDoc()</a></li>
-                                            <li><a href="classes/App-Controller-TwentyOneGameController.html#method_gameDraw">gameDraw()</a></li>
-                                            <li><a href="classes/App-Controller-TwentyOneGameController.html#method_gameReset">gameReset()</a></li>
-                                            <li><a href="classes/App-Controller-TwentyOneGameController.html#method_gameStart">gameStart()</a></li>
+                                            <li><a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_drawCard">drawCard()</a></li>
+                                            <li><a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_getData">getData()</a></li>
+                                            <li><a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_resetHand">resetHand()</a></li>
+                                            <li><a href="classes/App-Helpers-TwentyOneGameHelpers.html#method_validateSession">validateSession()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -632,7 +516,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/App-Controller-TwentyOneGameController.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Helpers-TwentyOneGameHelpers.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -10,7 +10,7 @@ class TwentyOneGameHelpers
 {
     public function validateSession(SessionInterface $session) : bool
     {
-        if(!$session) {
+        if($session == null) {
             return false;
         }
 

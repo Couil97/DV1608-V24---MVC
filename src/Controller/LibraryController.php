@@ -152,7 +152,7 @@ class LibraryController extends AbstractController
     ): Response {
         if(!$helpers->validateId()) return $this->redirectToRoute('library_update');
         
-        $book = $helpers->validateBook($bookReposatory->find($bookId));
+        $book = $helpers->validateBook($bookReposatory->find($_POST['id']));
         if(!$book) return $this->redirectToRoute('library_update');
 
         $data = [

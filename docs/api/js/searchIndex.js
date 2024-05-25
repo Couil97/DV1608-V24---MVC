@@ -516,51 +516,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-TwentyOneGameController.html#method_gameDoc"
         },                {
-            "fqsen": "\\App\\Controller\\TwentyOneGameController\u003A\u003AvalidateSession\u0028\u0029",
-            "name": "validateSession",
-            "summary": "",
-            "url": "classes/App-Controller-TwentyOneGameController.html#method_validateSession"
-        },                {
-            "fqsen": "\\App\\Controller\\TwentyOneGameController\u003A\u003AdrawCard\u0028\u0029",
-            "name": "drawCard",
-            "summary": "",
-            "url": "classes/App-Controller-TwentyOneGameController.html#method_drawCard"
-        },                {
-            "fqsen": "\\App\\Controller\\GameStatus",
-            "name": "GameStatus",
-            "summary": "",
-            "url": "classes/App-Controller-GameStatus.html"
-        },                {
-            "fqsen": "\\App\\Controller\\GameStatus\u003A\u003ARunning",
-            "name": "Running",
-            "summary": "",
-            "url": "classes/App-Controller-GameStatus.html#enumcase_Running"
-        },                {
-            "fqsen": "\\App\\Controller\\GameStatus\u003A\u003AWon",
-            "name": "Won",
-            "summary": "",
-            "url": "classes/App-Controller-GameStatus.html#enumcase_Won"
-        },                {
-            "fqsen": "\\App\\Controller\\GameStatus\u003A\u003ALost",
-            "name": "Lost",
-            "summary": "",
-            "url": "classes/App-Controller-GameStatus.html#enumcase_Lost"
-        },                {
-            "fqsen": "\\App\\Controller\\Player",
-            "name": "Player",
-            "summary": "",
-            "url": "classes/App-Controller-Player.html"
-        },                {
-            "fqsen": "\\App\\Controller\\Player\u003A\u003APlayer",
-            "name": "Player",
-            "summary": "",
-            "url": "classes/App-Controller-Player.html#enumcase_Player"
-        },                {
-            "fqsen": "\\App\\Controller\\Player\u003A\u003ABank",
-            "name": "Bank",
-            "summary": "",
-            "url": "classes/App-Controller-Player.html#enumcase_Bank"
-        },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
             "summary": "",
@@ -695,6 +650,31 @@ Search.appendIndex(
             "name": "deleteAll",
             "summary": "",
             "url": "classes/App-Helpers-LibraryHelpers.html#method_deleteAll"
+        },                {
+            "fqsen": "\\App\\Helpers\\TwentyOneGameHelpers",
+            "name": "TwentyOneGameHelpers",
+            "summary": "",
+            "url": "classes/App-Helpers-TwentyOneGameHelpers.html"
+        },                {
+            "fqsen": "\\App\\Helpers\\TwentyOneGameHelpers\u003A\u003AvalidateSession\u0028\u0029",
+            "name": "validateSession",
+            "summary": "",
+            "url": "classes/App-Helpers-TwentyOneGameHelpers.html#method_validateSession"
+        },                {
+            "fqsen": "\\App\\Helpers\\TwentyOneGameHelpers\u003A\u003AresetHand\u0028\u0029",
+            "name": "resetHand",
+            "summary": "",
+            "url": "classes/App-Helpers-TwentyOneGameHelpers.html#method_resetHand"
+        },                {
+            "fqsen": "\\App\\Helpers\\TwentyOneGameHelpers\u003A\u003AdrawCard\u0028\u0029",
+            "name": "drawCard",
+            "summary": "",
+            "url": "classes/App-Helpers-TwentyOneGameHelpers.html#method_drawCard"
+        },                {
+            "fqsen": "\\App\\Helpers\\TwentyOneGameHelpers\u003A\u003AgetData\u0028\u0029",
+            "name": "getData",
+            "summary": "",
+            "url": "classes/App-Helpers-TwentyOneGameHelpers.html#method_getData"
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
