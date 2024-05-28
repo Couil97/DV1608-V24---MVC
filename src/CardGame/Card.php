@@ -43,6 +43,18 @@ class Card
     }
 
     /**
+     * Change cards value
+    */
+    public function changeValue(int $value): void
+    {
+        $this->value = $value;
+    }
+
+    public function isEqual(Card $card) {
+        return $this->value == $card->getValue() && $this->suit == $card->getSuit();
+    }
+
+    /**
      * Converts the card into a readable string
      * @return string
     */

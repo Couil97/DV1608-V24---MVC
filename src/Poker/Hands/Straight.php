@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Poker\Hands;
+use App\Poker\PokerHand;
 
 class Straight extends PokerHand
 {
@@ -9,10 +10,18 @@ class Straight extends PokerHand
         parent::__construct(6);
     }
 
-    public function countCards(array $cards) : bool {
+    public function countCards(array $cards) : array {
         $equals = true;
 
-        for ($i = 0; $i < count($cards) - 1; $i++) { 
+        // Kollar om korten innehåller ett ace och en kung
+        if($cards[0]->getValue() == 14 && $cards[4]->getValue() == 2) {
+            $cards[0]->changeValue(1);
+            
+            // Sorting highest to lowest
+            usort($cards, fn($a, $b) => $b->getValue() - $a->getValue());
+        }
+
+        for ($i = 0; $i < count($cards) - 1; $i++) {
             if($cards[$i]->getValue() - $cards[$i+1]->getValue() != 1) $equals = false;
 
             if(!$equals) return [];

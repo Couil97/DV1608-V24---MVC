@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Poker\Hands;
+use App\Poker\PokerHand;
 
 class Flush extends PokerHand
 {
@@ -9,7 +10,7 @@ class Flush extends PokerHand
         parent::__construct(5);
     }
 
-    public function countCards(array $cards) : bool {
+    public function countCards(array $cards) : array {
         $equals = true;
 
         for ($i = 0; $i < count($cards) - 1; $i++) { 

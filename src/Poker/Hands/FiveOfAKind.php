@@ -1,39 +1,29 @@
 <?php
 
 namespace App\Poker\Hands;
+use App\Poker\PokerHand;
 
-class FourOfAKind extends PokerHand
+class FiveOfAKind extends PokerHand
 {
     public function __construct()
     {
         parent::__construct(1);
     }
 
-    public function countCards(array $cards) : bool {
-        $equals = false;
-        $countedCards = [];
+    public function countCards(array $cards) : array {
+        $hashmap = array();
+        $output = array();
         
-        foreach ($cards as $key => $card) {
-            $numberOfKindIndex = [];
-
-            for ($i = 0; $i < count($cards); $i++) { 
-                if($i == $key) continue;
-
-                if($card->getValue() == $cards[$i]->getValue()) {   
-                    if(count($numberOfKindIndex) == 3) {
-                        $equals = true;
-                        
-                        array_push($countedCards, $card, $cards[$i], $cards[$numberOfKindIndex[0]], $cards[$numberOfKindIndex[1]], $cards[$numberOfKindIndex[2]]);
-                        break;
-                    }
-
-                    array_push($numberOfKindIndex, $i);
-                }
-            }
-
-            if($equals) break;
+        for ($i = 0; $i < count($cards); $i++) {
+            $key = strval($cards[$i]->getValue());
+            if(!array_key_exists($key, $hashmap)) $hashmap += [$key => array($cards[$i])];
+            else array_push($hashmap[$key], $cards[$i]);
         }
 
-        return ($equals) ? $countedCards : [];
+        foreach ($hashmap as $key => $values) {
+            if(count($values) == 5) $output = array_merge($output, $values);
+        }
+        
+        return $output;
     }
 }

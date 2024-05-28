@@ -1,32 +1,19 @@
 <?php
 
 namespace App\Controller;
-
-use App\CardGame\CardDeck;
-use App\Helpers\CardGameHelpers;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class CardGameController extends AbstractController
+class PokerController extends AbstractController
 {
-    #[Route("/proj", name: "project")]
-    public function proj(): Response
+    #[Route("/proj", name: "proj")]
+    public function game(): Response
     {
-        return $this->render('proj/home.twig');
+        return $this->render('game/home.twig');
     }
 
     #[Route("/proj/poker/start", name: "poker_start")]
-    public function poker_start(SessionInterface $session, TwentyOneGameHelpers $helpers): Response
+    public function poker_start(): Response
     {
-        // Resets if session is missing variables
-        if(!$helpers->validateSession($session)) {
-            return $this->redirectToRoute('game_reset');
-        }
-        $data = $helpers->getData($session);
-
-        return $this->render('game/gameboard.twig', $data);
+        return $this->render('game/home.twig');
     }
 }

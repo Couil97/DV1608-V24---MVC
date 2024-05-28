@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Poker\Hands;
-use App\CardGame\CardGraphic;
+use App\Poker\PokerHand;
 
 class HighCard extends PokerHand
 {
@@ -10,7 +10,7 @@ class HighCard extends PokerHand
         parent::__construct(10);
     }
 
-    public function handEquals(array $cards) : bool {
+    public function countCards(array $cards) : array {
         $equals = false;
         $countedCards = [];
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Poker\Hands;
-use App\CardGame\CardGraphic;
+use App\Poker\PokerHand;
 
 class TwoPairs extends PokerHand
 {
@@ -10,29 +10,20 @@ class TwoPairs extends PokerHand
         parent::__construct(8);
     }
 
-    public function handEquals(array $cards) : bool {
-        $equals = false;
-        $countedCards = [];
+    public function countCards(array $cards) : array {
+        $hashmap = array();
+        $output = array();
         
-        foreach ($cards as $key => $card) {
-            for ($i = 0; $i < count($cards); $i++) { 
-                if($i == $key) continue;
-
-                if($card->getValue() == $cards[$i]->getValue()) {                    
-                    if(count($countedCards) != 0 && $card->getValue() != $countedCards[0]->getValue()) {
-                        $equals = true;
-                        
-                        array_push($countedCards, $card, $cards[$i]);
-                        break;
-                    }
-
-                    $countedCards = [$card, $cards[$i]];
-                }
-            }
-
-            if($equals) break;
+        for ($i = 0; $i < count($cards); $i++) {
+            $key = strval($cards[$i]->getValue());
+            if(!array_key_exists($key, $hashmap)) $hashmap += [$key => array($cards[$i])];
+            else array_push($hashmap[$key], $cards[$i]);
         }
 
-        return ($equals) ? $countedCards : [];
+        foreach ($hashmap as $key => $values) {
+            if(count($values) == 2) $output = array_merge($output, $values);
+        }
+
+        return (count($output) == 4) ? $output : [];
     }
 }

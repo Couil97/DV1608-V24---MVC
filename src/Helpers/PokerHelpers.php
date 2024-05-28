@@ -2,28 +2,34 @@
 
 namespace App\Helpers;
 
-use App\CardGame\CardDeck;
-use App\CardGame\CardHand;
-
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class TwentyOneGameHelpers
+class PokerHelpers
 {
-    public function validateSession(SessionInterface $session): bool
-    {
-        if($session == null) {
-            return false;
+    private function save(SessionInterface $session, Gameboard $gameboard) {
+        $status = $this->validateSession($session);
+        if($status) $this->setGameboard($gameboard, $session);
+        else /* Something */;
+    }
+
+    public static function validateSession(SessionInterface $session): bool {
+        $valid = true;
+
+        if(!$session->isStarted()) {
+            $session->start();
+            $valid = false;
         }
 
-        $cardDeck = $session->get('game-deck');
-        $cardHand = $session->get('game-hand');
-        $bankHand = $session->get('game-bank_hand');
+        return $valid;
+    }
 
-        // Revalidates session (incase someone leaves the game open long enough for the session to expire)
-        if(!$cardDeck || !$cardHand || !$bankHand) {
-            return false;
-        }
+    public static function setGameboard(Gameboard $gameboard, SessionInterface $session) {
+        $session->set('gameboard', $gameboard);
+    }
 
-        return true;
+    public static function resetSession(SessionInterface $session) {
+        $session->invalidate();
+        
+        $this->validateSession();
     }
 }

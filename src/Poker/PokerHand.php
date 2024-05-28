@@ -1,13 +1,10 @@
 <?php
-
 namespace App\Poker;
-
-use App\Poker\PokerHand;
 
 abstract class PokerHand
 {
     protected int $rank;
-    protected int $value;
+    protected int $value = 0;
 
     public function __construct(int $rank)
     {
@@ -24,32 +21,51 @@ abstract class PokerHand
         return $this->value;
     }
 
-    public function setValue(array $cards) : string
+    public function debugSetRank(int $rank) {
+        $this->rank = $rank;
+    }
+
+    public function debugSetValue(int $value) {
+        $this->value = $value;
+    }
+
+    private function setValue(array $cards): void
     {
         $sum = 0;
         foreach ($cards as $key => $card) {
             $sum += $card->getValue();
         }
 
-        $value = $sum;
+        $this->value = $sum;
     }
 
-    function handEquals(array $cards) : bool {
+    function handEquals(array $originalCards): bool {
+        // Eftersom att det är 5-kort poker måste det alltid finnas 5 kort.
+        if(count($originalCards) < 5) {
+            $this->setValue([]);
+            return false;
+        }
+        $cards = array_merge(array(), $originalCards);
+        
+        foreach ($cards as $key => $card) {
+            if($card->getValue() == 1) $card->changeValue(14);
+        }
+
         $equals = false;
         
         // Sorting highest to lowest
-        usort($cards, fn($a, $b) => $a->getValue() - $b->getValue());
+        usort($cards, fn($a, $b) => $b->getValue() - $a->getValue());
 
         $countedCards = $this->countCards($cards);
+        $this->setValue($countedCards);
 
-        $this->setCardValue($countedCards);
         return count($countedCards) > 0;
     }
 
-    abstract function countCards(array $cards) : array;
+    abstract function countCards(array $cards): array;
 
     public function __toString(): string
     {
-        return "Rank: " . strval($rank) . "\nValue: " . strval($value);
+        return "Rank: " . strval($this->rank) . "\nValue: " . strval($this->value);
     }
 }

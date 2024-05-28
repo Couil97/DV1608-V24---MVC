@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Poker\Hands;
-use App\CardGame\CardGraphic;
+use App\Poker\PokerHand;
 
 class OnePair extends PokerHand
 {
@@ -10,24 +10,23 @@ class OnePair extends PokerHand
         parent::__construct(9);
     }
 
-    public function handEquals(array $cards) : bool {
-        $equals = false;
-        $countedCards = [];
+    public function countCards(array $cards) : array {
+        $hashmap = array();
+        $output = array();
         
-        foreach ($cards as $key => $card) {
-            for ($i = 0; $i < count($cards); $i++) { 
-                if($i == $key) continue;
-
-                if($card->getValue() == $cards[$i]->getValue()) {
-                    $equals = true;
-                    $countedCards = [$card, $cards[$i]];
-                    break;
-                }
-            }
-
-            if($equals) break;
+        for ($i = 0; $i < count($cards); $i++) {
+            $key = strval($cards[$i]->getValue());
+            if(!array_key_exists($key, $hashmap)) $hashmap += [$key => array($cards[$i])];
+            else array_push($hashmap[$key], $cards[$i]);
         }
 
-        return ($equals) ? $countedCards : [];
+        foreach ($hashmap as $key => $values) {
+            if(count($values) == 2) {
+                $output = array_merge($output, $values);
+                break;
+            }
+        }
+        
+        return $output;
     }
 }

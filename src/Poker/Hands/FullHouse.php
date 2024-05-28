@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Poker\Hands;
+use App\Poker\PokerHand;
 
 class FullHouse extends PokerHand
 {
@@ -9,31 +10,21 @@ class FullHouse extends PokerHand
         parent::__construct(4);
     }
 
-    public function handEquals(array $cards) : bool {
-        $equals = false;
-        $leftOver = [];
-
-        foreach ($cards as $key => $card) {
-            $numberOfKindIndex = -1;
-
-            for ($i = 0; $i < count($cards); $i++) { 
-                if($i == $key) continue;
-
-                if($card->getValue() == $cards[$i]->getValue()) {   
-                    if($numberOfKindIndex != -1) {
-                        $leftOver = array_diff($countedCards, $card, $cards[$i], $cards[$numberOfKindIndex]);
-                        break;
-                    }
-
-                    $numberOfKindIndex = $i;
-                }
-            }
-
-            if(count($leftOver) > 0) break;
+    public function countCards(array $cards) : array {
+        $hashmap = array();
+        $output = array();
+        
+        for ($i = 0; $i < count($cards); $i++) {
+            $key = strval($cards[$i]->getValue());
+            if(!array_key_exists($key, $hashmap)) $hashmap += [$key => array($cards[$i])];
+            else array_push($hashmap[$key], $cards[$i]);
         }
 
-        if($leftOver[0]->getValue() == $leftOver[1]->getValue()) $equals = true;
+        foreach ($hashmap as $key => $values) {
+            if(count($values) == 2) $output = array_merge($output, $values);
+            if(count($values) == 3) $output = array_merge($output, $values);
+        }
 
-        return ($equals) ? $cards : [];
+        return (count($output) == 5) ? $output : [];
     }
 }
