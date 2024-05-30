@@ -84,6 +84,7 @@ class Gameboard
             'pot' => $this->pot,
             'status' => $this->status,
             'cheating' => $this->cheating,
+            'draws' => $this->draws,
             'players' => $playersData,
             'drawCount' => $this->draws,
             'roundCount' => $this->rounds,
@@ -109,7 +110,7 @@ class Gameboard
         }
 
         $this->winner->playerBank->gain($this->pot);
-        
+
         if(++$this->rounds == $this->maxRounds) {
             $this->finish();
         }

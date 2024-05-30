@@ -116,6 +116,56 @@ class GameboardTest extends TestCase
         $this->assertEquals($players[1]['chips'], 250);
     }
 
+    
+    /**
+     * Validates that placeBet works as it should
+    */
+    public function testPlaceBet()
+    {
+        $gameboard = new Gameboard();
+        $gameboard->start();
+
+        $gameboard->addPlayer('player', 'Anton');
+        $gameboard->addPlayer('player', 'Johan');
+
+        $gameboard->placeBet(0, 400);
+
+        $this->assertEquals($gameboard->getData()['players'][0]['chips'], 0);
+        $this->assertEquals($gameboard->getData()['players'][0]['bet'], 300);
+        $this->assertEquals($gameboard->getData()['pot'], 300);
+    }
+
+    /**
+     * Validates that reset works as it should
+    */
+    public function testReset()
+    {
+        $gameboard = new Gameboard();
+        $gameboard->start();
+
+        $gameboard->addPlayer('player', 'Anton');
+        $gameboard->addPlayer('player', 'Johan');
+
+        $gameboard->placeBet(0, 50);
+        $gameboard->placeBet(1, 50);
+
+        for ($i=0; $i < 3; $i++) { 
+            $gameboard->drawAll(true);
+        }
+
+        $players = $gameboard->getData()['players'];
+
+        $this->assertEquals($players[0]['chips'], 350);
+        $this->assertEquals($players[1]['chips'], 250);
+
+        $gameboard->drawAll(true);
+
+        $this->assertEquals($gameboard->pot, 0);
+        $this->assertEquals($gameboard->getData()['status'], 1);
+        $this->assertEquals($gameboard->getData()['draws'], 1);
+        $this->assertEquals($gameboard->deck->getNumberOfCards(), 42);
+    }
+
     /**
      * Validates that the toString method returns a string
     */
