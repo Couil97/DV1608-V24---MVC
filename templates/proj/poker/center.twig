@@ -1,0 +1,10 @@
+
+{% if status == 2 %}
+    <div class="gameboard-nextRound">
+        <a class="gameboard-button" href="{{path('poker_draw')}}">Nästa runda</a>
+    </div>
+{% elseif status == 3 %}
+    <div class="gameboard-restart">
+        <a class="gameboard-button" href="{{path('proj')}}">Starta om</a>
+    </div>
+{% endif %}

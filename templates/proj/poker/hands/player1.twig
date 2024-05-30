@@ -1,0 +1,20 @@
+{% if status < 3 %}
+    <form class="gameboard-bottom" action="{{path('poker_draw')}}" method="POST">
+        <div class="gameboard-hand">
+            {% if players[0].handSize > 0 %}
+            {% for i in 0..players[0].handSize - 1 %}
+                <input type="checkbox" name="card-{{ i }}" value="{{ i }}" id="player0-card-{{ i }}"/>
+                <label class="card" for="player0-card-{{ i }}" style="color: {{ players[0].hand[i].color }}">
+                    <span class="card-char-1">{{ players[0].hand[i].char }}</span>
+                    <span class="card-suit">{{ players[0].hand[i].graphicSuit }}</span>
+                    <span class="card-char-2">{{ players[0].hand[i].char }}</span>
+                </label>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="gameboard-buttons">
+            <input class="gameboard-button" type="submit" value="Dra kort" />
+            <a class="gameboard-button gameboard-button-danger" href="{{path('poker_endRound')}}" type="submit">Avsluta rundan</a>
+        </div>
+    </form>
+{% endif %}

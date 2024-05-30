@@ -53,7 +53,7 @@ class HomeController extends AbstractController
         $result = [];
 
         foreach($session->all() as $key => $value) {
-            array_push($result, "[" . $key . "]: " . $value);
+            array_push($result, "[" . $key . "] ");
         }
 
         $data = [

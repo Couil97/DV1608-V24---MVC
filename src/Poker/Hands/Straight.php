@@ -7,7 +7,7 @@ class Straight extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(6);
+        parent::__construct(6, 'Straight');
     }
 
     public function countCards(array $cards) : array {

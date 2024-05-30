@@ -30,6 +30,18 @@ class CardTest extends TestCase
     }
 
     /**
+     * Validates that Card->isEqual() works as intended
+     */
+    public function testIsEqual()
+    {
+        $card1 = new Card(12, "black_spade");
+        $card2 = new Card(11, "black_spade");
+
+        $this->assertTrue($card1->isEqual($card1));
+        $this->assertFalse($card1->isEqual($card2));
+    }
+
+    /**
      * Validates that the toString method returns a string
      */
     public function testToString()

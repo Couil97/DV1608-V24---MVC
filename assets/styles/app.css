@@ -1,6 +1,8 @@
 @import "twenty_one.css";
 @import "metrics.css";
 @import "library.css";
+@import "project.css";
+@import "gameboard.css";
 
 header {
     height: 50px;
@@ -201,7 +203,12 @@ footer > a {
 /* Card */
 
 .card {
+    user-select: none;
+    
     padding: 12px;
+
+    background-color: #fff;
+    box-shadow: 4px 4px 8px rgba(0,0,0,.8);
 
     display: flex;
     justify-content: space-between;

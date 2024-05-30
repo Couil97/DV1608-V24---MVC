@@ -30,7 +30,7 @@ class GameboardTest extends TestCase
 
         $this->assertInstanceOf("\App\CardGame\CardDeck", $gameboard->deck);
         $this->assertEquals($gameboard->pot, 0);
-        $this->assertEquals($gameboard->getStatus(), 1);
+        $this->assertEquals($gameboard->getData()['status'], 1);
     }
 
     /**
@@ -43,17 +43,19 @@ class GameboardTest extends TestCase
 
         $gameboard->addPlayer('player', 'Anton');
 
-        $players = $gameboard->getPlayers();
+        $players = $gameboard->getData()['players'];
+
+        print_r($players[0]['name']);
 
         $this->assertEquals(count($players), 1);
-        $this->assertEquals($players[0]->name, 'Anton');
+        $this->assertEquals($players[0]['name'], 'Anton');
 
         $gameboard->addPlayer('npc', 'CPU 1');
 
-        $players = $gameboard->getPlayers();
+        $players = $gameboard->getData()['players'];
 
         $this->assertEquals(count($players), 2);
-        $this->assertEquals($players[1]->name, 'CPU 1');
+        $this->assertEquals($players[1]['name'], 'CPU 1');
     }
 
     /**
@@ -65,12 +67,12 @@ class GameboardTest extends TestCase
         $gameboard->start();
         $gameboard->addPlayer('player', 'Anton');
 
-        $gameboard->draw(0, 5);
-        $numberOfCards = $gameboard->getPlayers()[0]->hand->getCount();
+        $gameboard->drawAll();
+        $numberOfCards = count($gameboard->getData()['players'][0]['hand']);
         $this->assertEquals($numberOfCards, 5);
 
-        $gameboard->draw(0, 5);
-        $numberOfCards = $gameboard->getPlayers()[0]->hand->getCount();
+        $gameboard->drawAll();
+        $numberOfCards = count($gameboard->getData()['players'][0]['hand']);
         $this->assertEquals($numberOfCards, 5);
     }
 
@@ -83,12 +85,12 @@ class GameboardTest extends TestCase
         $gameboard->start();
         $gameboard->addPlayer('player', 'Anton');
 
-        $gameboard->draw(0, 5);
-        $numberOfCards = $gameboard->getPlayers()[0]->hand->getCount();
+        $gameboard->drawAll();
+        $numberOfCards = count($gameboard->getData()['players'][0]['hand']);
         $this->assertEquals($numberOfCards, 5);
 
         $gameboard->remove(0, [0,1,2]);
-        $numberOfCards = $gameboard->getPlayers()[0]->hand->getCount();
+        $numberOfCards = count($gameboard->getData()['players'][0]['hand']);
         $this->assertEquals($numberOfCards, 2);
     }
 
@@ -99,37 +101,33 @@ class GameboardTest extends TestCase
     {
         $gameboard = new Gameboard();
         $gameboard->start();
+
         $gameboard->addPlayer('player', 'Anton');
         $gameboard->addPlayer('player', 'Johan');
 
         $gameboard->placeBet(0, 50);
         $gameboard->placeBet(1, 50);
 
-        $gameboard->draw(0, 5);
-        $gameboard->draw(1, 5);
+        for ($i=0; $i < 3; $i++) { 
+            $gameboard->drawAll(true);
+        }
 
-        $gameboard->calculateAllHands();
+        $players = $gameboard->getData()['players'];
 
-        $gameboard->debugSetRankAndValue(0, 9, 12);
-        $gameboard->debugSetRankAndValue(1, 10, 8);
-        $gameboard->endRound();
+        $this->assertEquals($players[0]['chips'], 350);
+        $this->assertEquals($players[1]['chips'], 250);
 
-        $players = $gameboard->getPlayers();
+        $this->assertEquals($players[0]['bet'], 0);
+        $this->assertEquals($players[1]['bet'], 0);
 
-        $this->assertEquals($players[0]->playerBank->tokensLeft, 350);
-        $this->assertEquals($players[1]->playerBank->tokensLeft, 250);
+        $this->assertEquals($players[0]['rank'], 99);
+        $this->assertEquals($players[0]['value'], -1);
 
-        $this->assertEquals($players[0]->currentBet, 0);
-        $this->assertEquals($players[1]->currentBet, 0);
-
-        $this->assertEquals($players[0]->getRank(), 99);
-        $this->assertEquals($players[0]->getValue(), -1);
-
-        $this->assertEquals($players[1]->getRank(), 99);
-        $this->assertEquals($players[1]->getValue(), -1);
+        $this->assertEquals($players[1]['rank'], 99);
+        $this->assertEquals($players[1]['value'], -1);
         
-        $this->assertEquals($players[0]->hand->getCount(), 0);
-        $this->assertEquals($players[1]->hand->getCount(), 0);
+        $this->assertEquals(count($players[0]['hand']), 0);
+        $this->assertEquals(count($players[1]['hand']), 0);
     }
 
     /**
@@ -146,20 +144,15 @@ class GameboardTest extends TestCase
             $gameboard->placeBet(0, 50);
             $gameboard->placeBet(1, 50);
     
-            $gameboard->draw(0, 5);
-            $gameboard->draw(1, 5);
-    
-            $gameboard->calculateAllHands();
-    
-            $gameboard->debugSetRankAndValue(0, 9, 12);
-            $gameboard->debugSetRankAndValue(1, 10, 8);
-            $gameboard->endRound();
+            for ($j=0; $j < 3; $j++) { 
+                $gameboard->drawAll(true);
+            }
         }
 
         $this->assertIsObject($gameboard->gameWinner);
         $this->assertEquals($gameboard->gameWinner->id, 0);
         $this->assertEquals($gameboard->gameWinner->playerBank->tokensLeft, 450);
-        $this->assertEquals($gameboard->getStatus(), 2);
+        $this->assertEquals($gameboard->getData()['status'], 3);
     }
 
     /**

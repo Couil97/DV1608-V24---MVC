@@ -1,0 +1,28 @@
+<div class="gameboard-display">
+    <div class="gameboard-players">
+        {% if playerCount > 1 %}
+            {{ include('proj/poker/hands/player2.twig') }}
+        {% endif %}
+
+        {% if playerCount > 2 %}
+            {{ include('proj/poker/hands/player3.twig') }}
+        {% endif %}
+
+        {% if playerCount > 3 %}
+            {{ include('proj/poker/hands/player4.twig') }}
+        {% endif %}
+    </div>
+
+    <div class="gameboard-center">
+        <div class="gameboard-pot">
+            Pot:    {{ pot }}
+        </div>
+    </div>
+</div>
+<div class="gameboard-info-panel">
+    {{ include('proj/poker/playerStats.twig') }}
+    {{ include('proj/poker/bet.twig') }}
+</div>
+<div class="gameboard-player-panel">
+    {{ include('proj/poker/hands/player1.twig') }}
+</div>

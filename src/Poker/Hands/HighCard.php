@@ -7,7 +7,7 @@ class HighCard extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(10);
+        parent::__construct(10, 'High card');
     }
 
     public function countCards(array $cards) : array {

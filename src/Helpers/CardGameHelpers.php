@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class CardGameHelpers
 {
-    public static function validateSession(SessionInterface $session)
+    public static function validateSession(SessionInterface $session): void
     {
         if(!$session->isStarted()) {
             $session->start();

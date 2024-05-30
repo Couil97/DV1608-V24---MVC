@@ -7,7 +7,7 @@ class FullHouse extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(4);
+        parent::__construct(4, 'Full house');
     }
 
     public function countCards(array $cards) : array {

@@ -1,0 +1,42 @@
+<div class="gameboard-display">
+    <div class="gameboard-winner">
+        {% if status == 3 %}
+        <div class="gameboard-winner-main-item gameboard-winner-finish">
+        {% else %}
+        <div class="gameboard-winner-main-item">
+        {% endif %}
+            Rund vinnare: <span class="gameboard-winner-name">{{ winner.name }}</span>
+        </div>
+        {% if status == 2 %}
+        <div class="gameboard-winner-item">
+            Vunna chips <span class="gameboard-winner-pot">{{ pot }}</span>
+        </div>
+        {% endif %}
+        <div class="gameboard-winner-item">
+            Totala chips: <span class="gameboard-winner-chips">{{ winner.chips }}</span>
+        </div>
+    </div>
+</div>
+<div class="gameboard-info-panel">
+</div>
+<div class="gameboard-player-panel">
+    <div class="gameboard-bottom">
+        <div class="gameboard-hand">
+            {% if winner.handSize > 0 %}
+            {% for i in 0..winner.handSize - 1 %}
+                <div class="card" style="color:{{ winner.hand[i].color }}">
+                    <span class="card-char-1">{{ winner.hand[i].char }}</span>
+                    <span class="card-suit">{{ winner.hand[i].graphicSuit }}</span>
+                    <span class="card-char-2">{{ winner.hand[i].char }}</span>
+                </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="gameboard-buttons">
+            {% if status == 2 %}
+                <a class="gameboard-button gameboard-button-success" href="{{path('poker_draw')}}" type="submit">Nästa runda</a>
+            {% endif %}
+            <a class="gameboard-button gameboard-button-danger" href="{{path('proj')}}" type="submit">Avsluta spelet</a>
+        </div>
+    </div>
+</div>

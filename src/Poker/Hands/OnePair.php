@@ -7,7 +7,7 @@ class OnePair extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(9);
+        parent::__construct(9, 'One pair');
     }
 
     public function countCards(array $cards) : array {

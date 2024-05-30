@@ -33,6 +33,7 @@
             <directory suffix=".php">src/Entity</directory>
             <directory suffix=".php">src/Repository</directory>
             <directory suffix=".php">src/Controller</directory>
+            <directory suffix=".php">src/Helpers</directory>
         </exclude>
 
         <report>

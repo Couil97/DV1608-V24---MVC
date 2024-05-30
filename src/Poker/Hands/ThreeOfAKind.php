@@ -7,7 +7,7 @@ class ThreeOfAKind extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(7);
+        parent::__construct(7, 'Three of a kind');
     }
 
     public function countCards(array $cards) : array {

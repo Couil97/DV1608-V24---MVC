@@ -1,0 +1,27 @@
+<div class="winner-wrapper">
+    {% if status == 2 %}
+        <div class="poker-round-winner">
+            {{ winner.name }} vann <span class="poker-credits">{{ pot }}</span> chips denna rundan!
+        </div>
+    {% elseif status == 3 %}
+        <div class="poker-game-winner">
+            {{ winner.name }} vann hela spelet med <span class="poker-credits">{{ winner.chips }}</span> chips!
+        </div>
+    {% endif %}
+
+    <div class="gameboard-pokerHand">
+        Poker hand:    {{ winner.pokerHand }}
+    <div>
+
+    <div class="gameboard-hand">
+            {% if winner.handSize > 0 %}
+            {% for i in 0..winner.handSize - 1 %}
+                <div class="card" style="color:{{ winner.hand[i].color }}">
+                    <span class="card-char-1">{{ winner.hand[i].char }}</span>
+                    <span class="card-suit">{{ winner.hand[i].graphicSuit }}</span>
+                    <span class="card-char-2">{{ winner.hand[i].char }}</span>
+                </div>
+            {% endfor %}
+            {% endif %}
+    </div>
+</div>

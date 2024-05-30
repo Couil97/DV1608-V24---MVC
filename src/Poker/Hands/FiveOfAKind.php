@@ -7,7 +7,7 @@ class FiveOfAKind extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(1);
+        parent::__construct(1, 'Five of a kind');
     }
 
     public function countCards(array $cards) : array {

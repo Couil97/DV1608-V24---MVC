@@ -1,0 +1,23 @@
+<div class="gameboard-player gameboard-player3">
+    <div class="gameboard-player-stats">
+        <div class="gameboard-name">
+            Namn:  {{ players[2].name }}
+        </div>
+        <div class="gameboard-chips">
+            Chips:  {{ players[2].chips }}
+        </div>
+        <div class="gameboard-bet">
+            Bet:    {{ players[2].bet }}
+        </div>
+
+        {% if status < 3 and cheating == 1 %}
+            <div class="gameboard-pokerHand">
+                Hand: {{ players[2].pokerHand }}
+            </div>
+
+            <div class="gameboard-value">
+                Kort värde: {{ players[2].value }}
+            </div>
+        {% endif %}
+    </div>
+</div>

@@ -6,7 +6,7 @@ use App\CardGame\Card;
 class PlayerHand
 {
     private $cardLimit;
-    private $hand;
+    private $hand = [];
 
     public function __construct(int $cardLimit = 5) {
         $this->cardLimit = $cardLimit;

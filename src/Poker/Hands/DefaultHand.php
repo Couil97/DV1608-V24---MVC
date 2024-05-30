@@ -7,7 +7,7 @@ class DefaultHand extends PokerHand
 {
     public function __construct()
     {
-        parent::__construct(99);
+        parent::__construct(99, 'Default');
         $this->value = -1;
     }
 

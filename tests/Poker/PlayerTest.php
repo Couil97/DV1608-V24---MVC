@@ -197,7 +197,7 @@ class PlayerTest extends TestCase
 
         $player->setCurrentPokerHand();
 
-        $this->assertEquals($player->getRank(), 3);
+        $this->assertEquals($player->getData()['rank'], 3);
     }
 
     /**
@@ -214,7 +214,7 @@ class PlayerTest extends TestCase
 
         $player->setCurrentPokerHand();
 
-        $this->assertEquals($player->getValue(), 40);
+        $this->assertEquals($player->getData()['value'], 40);
     }
 
     /**

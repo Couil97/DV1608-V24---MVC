@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="proj-html">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body class="proj-body">
+        <main class="proj-main">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="proj-footer">
+            <p>My Symfony Site</p>
+            <a href="https://github.com/Couil97/DV1608-V24---MVC">Github</a>
+            {% block footer %}{% endblock %}
+        </footer>
+    </body>
+</html>

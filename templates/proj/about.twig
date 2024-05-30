@@ -1,0 +1,22 @@
+{% extends "proj/base.twig" %}
+
+{% block title %}Om Projektet{% endblock %}
+
+{% block body %}
+    <h1 class="proj-pageheader">Om Projektet</h1>
+    <div class="proj-content">
+        <div class="proj-content-main">
+            <p class="proj-text">
+                I detta projekt har jag valt att göra ett poker spel. 
+                Spelet körs i tre runder. 
+                Inom varje runda kan man byta kort och satsa 3 gånger. 
+                Den som har mest poker chips i slutet av spelet har vunnit.
+                Det finns två svårighetsgrader på CPUerna.
+                Den lätta väljer bara slumpmässigt vlika kort den bör kasta medans den svårare endast kastar de kort som inte tillhör den högsta pokerhanden (t.ex. sparar ett par/triss etc.).
+            </p>
+        </div>
+        <div class="proj-content-sub">
+            <img src="{{ asset('img/poker.jpg') }}" class="proj-image" alt="Ett Pokerspel">
+        </div>
+    </div>
+{% endblock %}

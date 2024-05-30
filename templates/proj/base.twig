@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="proj-html">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body class="proj-body">
+        <header class="proj-header" style="background-image: url({{ asset('img/background.jpg') }})">
+            <span class="proj-title">My Symfony Site</span>
+        </header>
+
+        <nav class="proj-nav">
+            <ul class="proj-nav-list">
+                <li><a href="{{ path('proj') }}">Home</a></li>
+                <li><a href="{{ path('proj_about') }}">About</a></li>
+                <li><a href="{{ path('poker_start') }}">Poker Start</a></li>
+                <li><a href="{{ path('session') }}">Session</a></li>
+            </ul>
+        </nav>
+        <main class="proj-main">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="proj-footer">
+            <p>My Symfony Site</p>
+            <a href="https://github.com/Couil97/DV1608-V24---MVC">Github</a>
+            {% block footer %}{% endblock %}
+        </footer>
+    </body>
+</html>

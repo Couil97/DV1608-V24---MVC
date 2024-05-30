@@ -1,0 +1,13 @@
+{% extends "proj/base-gameboard.twig" %}
+
+{% block title %}Gameboard - {% if status == 1 %} Drawing {% elseif status == 2 %} End of round {% elseif status == 3 %} End of game {% endif %} {% endblock %}
+
+{% block body %}
+    <div class="gameboard">
+        {% if status == 1 %}
+            {{ include('proj/poker/status/drawing.twig') }}
+        {% else %}
+            {{ include('proj/poker/status/endOfRound.twig') }}
+        {% endif %}
+    </div>
+{% endblock %}

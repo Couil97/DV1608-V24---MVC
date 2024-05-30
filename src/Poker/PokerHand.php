@@ -5,10 +5,12 @@ abstract class PokerHand
 {
     protected int $rank;
     protected int $value = 0;
+    protected string $name;
 
-    public function __construct(int $rank)
+    public function __construct(int $rank, string $name)
     {
         $this->rank = $rank;
+        $this->name = $name;
     }
 
     public function getRank(): int
@@ -19,6 +21,10 @@ abstract class PokerHand
     public function getValue(): int
     {
         return $this->value;
+    }
+
+    public function getName(): string {
+        return $this->name;
     }
 
     public function debugSetRank(int $rank) {

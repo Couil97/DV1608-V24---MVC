@@ -22,7 +22,7 @@ class Player
     public string $name;
     public int $id;
 
-    public function __construct(string $type = 'npc', string $name = 'john', int $id = -1)
+    public function __construct(string $type = 'npc', string $name = 'default', int $id = -1)
     {
         $this->playerType = $type;
         $this->name = $name;
@@ -53,12 +53,26 @@ class Player
         $this->currentPokerHand = PokerHands::getHighestPokerHand($this->hand->getHand());
     }
 
-    public function getRank(): int {
+    private function getRank(): int {
         return $this->currentPokerHand->getRank();
     }
 
-    public function getValue(): int {
+    private function getValue(): int {
         return $this->currentPokerHand->getValue();
+    }
+
+    public function getData(): array {
+        return [
+            'name' => $this->name,
+            'type' => $this->playerType,
+            'chips' => $this->playerBank->tokensLeft,
+            'bet' => $this->currentBet,
+            'hand' => $this->hand->getHand(),
+            'handSize' => count($this->hand->getHand()),
+            'rank' => $this->getRank(),
+            'value' => $this->getValue(),
+            'pokerHand' => $this->currentPokerHand->getName()
+        ];
     }
 
     public function __toString(): string
