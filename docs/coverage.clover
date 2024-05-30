@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1717100420">
-  <project timestamp="1717100420">
+<coverage generated="1717101643">
+  <project timestamp="1717101643">
     <file name="/home/atb/dbwebb-kurser/mvc/me/report/src/CardGame/Card.php">
       <class name="App\CardGame\Card" namespace="global">
         <metrics complexity="7" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="13" coveredelements="13"/>
@@ -12,8 +12,8 @@
       <line num="33" type="stmt" count="59"/>
       <line num="40" type="method" name="getSuit" visibility="public" complexity="1" crap="1" count="16"/>
       <line num="42" type="stmt" count="16"/>
-      <line num="48" type="method" name="changeValue" visibility="public" complexity="1" crap="1" count="8"/>
-      <line num="50" type="stmt" count="8"/>
+      <line num="48" type="method" name="changeValue" visibility="public" complexity="1" crap="1" count="9"/>
+      <line num="50" type="stmt" count="9"/>
       <line num="53" type="method" name="isEqual" visibility="public" complexity="2" crap="2" count="1"/>
       <line num="54" type="stmt" count="1"/>
       <line num="61" type="method" name="__toString" visibility="public" complexity="1" crap="1" count="1"/>
@@ -265,35 +265,35 @@
       <line num="106" type="stmt" count="1"/>
       <line num="107" type="stmt" count="0"/>
       <line num="111" type="stmt" count="1"/>
-      <line num="112" type="stmt" count="1"/>
-      <line num="113" type="stmt" count="0"/>
-      <line num="117" type="method" name="reset" visibility="private" complexity="2" crap="6" count="0"/>
-      <line num="118" type="stmt" count="0"/>
+      <line num="113" type="stmt" count="1"/>
+      <line num="114" type="stmt" count="0"/>
+      <line num="118" type="method" name="reset" visibility="private" complexity="2" crap="6" count="0"/>
       <line num="119" type="stmt" count="0"/>
       <line num="120" type="stmt" count="0"/>
-      <line num="122" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
       <line num="123" type="stmt" count="0"/>
-      <line num="126" type="stmt" count="0"/>
+      <line num="124" type="stmt" count="0"/>
       <line num="127" type="stmt" count="0"/>
-      <line num="130" type="method" name="finish" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="131" type="stmt" count="0"/>
-      <line num="133" type="stmt" count="0"/>
+      <line num="128" type="stmt" count="0"/>
+      <line num="131" type="method" name="finish" visibility="private" complexity="3" crap="12" count="0"/>
+      <line num="132" type="stmt" count="0"/>
       <line num="134" type="stmt" count="0"/>
       <line num="135" type="stmt" count="0"/>
-      <line num="139" type="stmt" count="0"/>
-      <line num="142" type="method" name="calculateHand" visibility="private" complexity="1" crap="1" count="3"/>
-      <line num="143" type="stmt" count="3"/>
-      <line num="146" type="method" name="debugSetRankAndValue" visibility="private" complexity="2" crap="2" count="1"/>
-      <line num="147" type="stmt" count="1"/>
-      <line num="149" type="stmt" count="1"/>
+      <line num="136" type="stmt" count="0"/>
+      <line num="140" type="stmt" count="0"/>
+      <line num="143" type="method" name="calculateHand" visibility="private" complexity="1" crap="1" count="3"/>
+      <line num="144" type="stmt" count="3"/>
+      <line num="147" type="method" name="debugSetRankAndValue" visibility="private" complexity="2" crap="2" count="1"/>
+      <line num="148" type="stmt" count="1"/>
       <line num="150" type="stmt" count="1"/>
-      <line num="153" type="method" name="__toString" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="155" type="stmt" count="1"/>
+      <line num="151" type="stmt" count="1"/>
+      <line num="154" type="method" name="__toString" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="156" type="stmt" count="1"/>
       <line num="157" type="stmt" count="1"/>
       <line num="158" type="stmt" count="1"/>
       <line num="159" type="stmt" count="1"/>
-      <metrics loc="162" ncloc="162" classes="1" methods="13" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="68" coveredstatements="53" elements="81" coveredelements="62"/>
+      <line num="160" type="stmt" count="1"/>
+      <metrics loc="163" ncloc="163" classes="1" methods="13" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="68" coveredstatements="53" elements="81" coveredelements="62"/>
     </file>
     <file name="/home/atb/dbwebb-kurser/mvc/me/report/src/Poker/Hands/DefaultHand.php">
       <class name="App\Poker\Hands\DefaultHand" namespace="global">
@@ -318,7 +318,7 @@
       <line num="17" type="stmt" count="9"/>
       <line num="18" type="stmt" count="9"/>
       <line num="19" type="stmt" count="9"/>
-      <line num="20" type="stmt" count="9"/>
+      <line num="20" type="stmt" count="8"/>
       <line num="23" type="stmt" count="9"/>
       <line num="24" type="stmt" count="9"/>
       <line num="27" type="stmt" count="9"/>
@@ -350,7 +350,7 @@
       <line num="17" type="stmt" count="8"/>
       <line num="18" type="stmt" count="8"/>
       <line num="19" type="stmt" count="8"/>
-      <line num="20" type="stmt" count="8"/>
+      <line num="20" type="stmt" count="7"/>
       <line num="23" type="stmt" count="8"/>
       <line num="24" type="stmt" count="8"/>
       <line num="27" type="stmt" count="8"/>
@@ -368,7 +368,7 @@
       <line num="17" type="stmt" count="6"/>
       <line num="18" type="stmt" count="6"/>
       <line num="19" type="stmt" count="6"/>
-      <line num="20" type="stmt" count="5"/>
+      <line num="20" type="stmt" count="4"/>
       <line num="23" type="stmt" count="6"/>
       <line num="24" type="stmt" count="6"/>
       <line num="25" type="stmt" count="6"/>
@@ -381,13 +381,13 @@
       </class>
       <line num="8" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
       <line num="10" type="stmt" count="11"/>
-      <line num="13" type="method" name="countCards" visibility="public" complexity="3" crap="3" count="3"/>
-      <line num="14" type="stmt" count="3"/>
-      <line num="15" type="stmt" count="3"/>
-      <line num="17" type="stmt" count="3"/>
-      <line num="18" type="stmt" count="3"/>
-      <line num="19" type="stmt" count="3"/>
-      <line num="22" type="stmt" count="3"/>
+      <line num="13" type="method" name="countCards" visibility="public" complexity="3" crap="3" count="5"/>
+      <line num="14" type="stmt" count="5"/>
+      <line num="15" type="stmt" count="5"/>
+      <line num="17" type="stmt" count="5"/>
+      <line num="18" type="stmt" count="5"/>
+      <line num="19" type="stmt" count="5"/>
+      <line num="22" type="stmt" count="5"/>
       <metrics loc="24" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
     </file>
     <file name="/home/atb/dbwebb-kurser/mvc/me/report/src/Poker/Hands/OnePair.php">
@@ -396,18 +396,18 @@
       </class>
       <line num="8" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
       <line num="10" type="stmt" count="11"/>
-      <line num="13" type="method" name="countCards" visibility="public" complexity="5" crap="5" count="6"/>
-      <line num="14" type="stmt" count="6"/>
-      <line num="15" type="stmt" count="6"/>
-      <line num="17" type="stmt" count="6"/>
-      <line num="18" type="stmt" count="6"/>
-      <line num="19" type="stmt" count="6"/>
-      <line num="20" type="stmt" count="5"/>
-      <line num="23" type="stmt" count="6"/>
-      <line num="24" type="stmt" count="6"/>
-      <line num="25" type="stmt" count="5"/>
-      <line num="26" type="stmt" count="5"/>
-      <line num="30" type="stmt" count="6"/>
+      <line num="13" type="method" name="countCards" visibility="public" complexity="5" crap="5" count="5"/>
+      <line num="14" type="stmt" count="5"/>
+      <line num="15" type="stmt" count="5"/>
+      <line num="17" type="stmt" count="5"/>
+      <line num="18" type="stmt" count="5"/>
+      <line num="19" type="stmt" count="5"/>
+      <line num="20" type="stmt" count="3"/>
+      <line num="23" type="stmt" count="5"/>
+      <line num="24" type="stmt" count="5"/>
+      <line num="25" type="stmt" count="3"/>
+      <line num="26" type="stmt" count="3"/>
+      <line num="30" type="stmt" count="5"/>
       <metrics loc="32" ncloc="32" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="12" elements="14" coveredelements="14"/>
     </file>
     <file name="/home/atb/dbwebb-kurser/mvc/me/report/src/Poker/Hands/Straight.php">
@@ -457,7 +457,7 @@
       <line num="17" type="stmt" count="6"/>
       <line num="18" type="stmt" count="6"/>
       <line num="19" type="stmt" count="6"/>
-      <line num="20" type="stmt" count="5"/>
+      <line num="20" type="stmt" count="4"/>
       <line num="23" type="stmt" count="6"/>
       <line num="24" type="stmt" count="6"/>
       <line num="27" type="stmt" count="6"/>
@@ -475,7 +475,7 @@
       <line num="17" type="stmt" count="6"/>
       <line num="18" type="stmt" count="6"/>
       <line num="19" type="stmt" count="6"/>
-      <line num="20" type="stmt" count="5"/>
+      <line num="20" type="stmt" count="4"/>
       <line num="23" type="stmt" count="6"/>
       <line num="24" type="stmt" count="6"/>
       <line num="27" type="stmt" count="6"/>
@@ -624,6 +624,6 @@
       <line num="32" type="stmt" count="7"/>
       <metrics loc="36" ncloc="36" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="15" coveredelements="15"/>
     </file>
-    <metrics files="22" loc="1224" ncloc="1145" classes="21" methods="102" coveredmethods="98" conditionals="0" coveredconditionals="0" statements="389" coveredstatements="374" elements="491" coveredelements="472"/>
+    <metrics files="22" loc="1225" ncloc="1146" classes="21" methods="102" coveredmethods="98" conditionals="0" coveredconditionals="0" statements="389" coveredstatements="374" elements="491" coveredelements="472"/>
   </project>
 </coverage>

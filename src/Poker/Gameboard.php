@@ -109,6 +109,7 @@ class Gameboard
         }
 
         $this->winner->playerBank->gain($this->pot);
+        
         if(++$this->rounds == $this->maxRounds) {
             $this->finish();
         }

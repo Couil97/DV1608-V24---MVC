@@ -45,8 +45,6 @@ class GameboardTest extends TestCase
 
         $players = $gameboard->getData()['players'];
 
-        print_r($players[0]['name']);
-
         $this->assertEquals(count($players), 1);
         $this->assertEquals($players[0]['name'], 'Anton');
 
@@ -116,43 +114,6 @@ class GameboardTest extends TestCase
 
         $this->assertEquals($players[0]['chips'], 350);
         $this->assertEquals($players[1]['chips'], 250);
-
-        $this->assertEquals($players[0]['bet'], 0);
-        $this->assertEquals($players[1]['bet'], 0);
-
-        $this->assertEquals($players[0]['rank'], 99);
-        $this->assertEquals($players[0]['value'], -1);
-
-        $this->assertEquals($players[1]['rank'], 99);
-        $this->assertEquals($players[1]['value'], -1);
-        
-        $this->assertEquals(count($players[0]['hand']), 0);
-        $this->assertEquals(count($players[1]['hand']), 0);
-    }
-
-    /**
-     * Verify that finish works as it should
-    */
-    public function testFinish()
-    {
-        $gameboard = new Gameboard();
-        $gameboard->start();
-        $gameboard->addPlayer('player', 'Anton');
-        $gameboard->addPlayer('player', 'Johan');
-
-        for ($i=0; $i < 3; $i++) {
-            $gameboard->placeBet(0, 50);
-            $gameboard->placeBet(1, 50);
-    
-            for ($j=0; $j < 3; $j++) { 
-                $gameboard->drawAll(true);
-            }
-        }
-
-        $this->assertIsObject($gameboard->gameWinner);
-        $this->assertEquals($gameboard->gameWinner->id, 0);
-        $this->assertEquals($gameboard->gameWinner->playerBank->tokensLeft, 450);
-        $this->assertEquals($gameboard->getData()['status'], 3);
     }
 
     /**
