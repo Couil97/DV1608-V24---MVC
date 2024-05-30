@@ -36,12 +36,21 @@ class PokerController extends AbstractController
     {
         $data = PokerHelpers::drawCards($session);
 
+        $timeout = $session->get('timeout') ?? 0;
+
         if($data == []) {
-            $this->addFlash(
-                'warning',
-                'Någonting gick snett!'
-            );
-            return $this->redirectToRoute('proj');
+            if($session->has('gameboard') && $timeout < 5) {
+                $session->set('timeout', $timeout + 1);
+                return $this->redirectToRoute('poker_draw');
+            }
+            else {
+                $this->addFlash(
+                    'warning',
+                    'Någonting gick snett!'
+                );
+
+                return $this->redirectToRoute('proj');
+            }
         }
 
         return $this->render('proj/poker/gameboard.twig', $data);
@@ -52,12 +61,21 @@ class PokerController extends AbstractController
     {
         $data = PokerHelpers::endRound($session);
 
+        $timeout = $session->get('timeout') ?? 0;
+
         if($data == []) {
-            $this->addFlash(
-                'warning',
-                'Någonting gick snett!'
-            );
-            return $this->redirectToRoute('proj');
+            if($session->has('gameboard') && $timeout < 5) {
+                $session->set('timeout', $timeout + 1);
+                return $this->redirectToRoute('poker_endRound');
+            }
+            else {
+                $this->addFlash(
+                    'warning',
+                    'Någonting gick snett!'
+                );
+
+                return $this->redirectToRoute('proj');
+            }
         }
 
         return $this->render('proj/poker/gameboard.twig', $data);

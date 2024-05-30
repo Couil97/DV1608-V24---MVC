@@ -35,6 +35,9 @@ class PokerHelpers
     public static function drawCards(SessionInterface $session) {
         if(self::validateSession($session)) {
             $gameboard = self::getGameboard($session);
+
+            if($gameboard == null) return [];
+
             $cards = [];
 
             foreach ($_POST as $key => $value) {
@@ -64,6 +67,9 @@ class PokerHelpers
     public static function endRound(SessionInterface $session) {
         if(self::validateSession($session)) {
             $gameboard = self::getGameboard($session);
+
+            if($gameboard == null) return [];
+            
             $counter = 0;
 
             while($gameboard->getData()['status'] == 1 && $counter < 5) {
